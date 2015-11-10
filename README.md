@@ -1,4 +1,4 @@
-# Przepisy-kulinare
+# Przepisy-kulinarne
 
 Skład grupy:
 Martyna Gałaszewska
@@ -18,4 +18,3 @@ Zakres funkcjonalności:
 - przeglądanie aktualnie dodanych
 - ocenianie jakości przepisu przez użytkowników
 - dodanie searchbar
-- 
