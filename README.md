@@ -6,7 +6,7 @@ Jan Matuszewski
 Michał Kassjański
 
 Temat:
-Przepisy kulinarne
+Przepisy kulinarne - strona internetowa
 
 Zakres funkcjonalności:
 - system zarządzania kontem użytkownika (rejestracja,zmiana hasła,przypomnienie hasła)
@@ -18,3 +18,7 @@ Zakres funkcjonalności:
 - przeglądanie aktualnie dodanych
 - ocenianie jakości przepisu przez użytkowników
 - dodanie searchbar
+
+Technologie:
+PHP/HTML/JS
+MySQL
