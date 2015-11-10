@@ -20,5 +20,5 @@ Zakres funkcjonalności:
 - dodanie searchbar
 
 Technologie:
-PHP/HTML/JS
-MySQL
+- PHP/HTML/JS
+- MySQL
