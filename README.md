@@ -1,4 +1,4 @@
-# Przepisy-kulinarne
+# Projekt przepisy kulinarne
 
 Skład grupy:
 - Martyna Gałaszewska
