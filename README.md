@@ -1,9 +1,9 @@
 # Przepisy-kulinarne
 
 Skład grupy:
-Martyna Gałaszewska
-Jan Matuszewski
-Michał Kassjański
+- Martyna Gałaszewska
+- Jan Matuszewski
+- Michał Kassjański
 
 Temat:
 Przepisy kulinarne - strona internetowa
