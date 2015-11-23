@@ -20,5 +20,7 @@ Zakres funkcjonalności:
 - dodanie searchbar
 
 Technologie:
-- PHP/HTML/JS/JAVA
+- HTML/JS/JAVA
 - MySQL
+- Spring MVC - framework Java
+- http://hibernate.org mapowanie na obiekty rekordów z bazy danych
