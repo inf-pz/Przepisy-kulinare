@@ -9,10 +9,10 @@ Temat:
 Przepisy kulinarne - strona internetowa
 
 Zakres funkcjonalności:
-- system zarządzania kontem użytkownika (rejestracja,zmiana hasła,przypomnienie hasła)
+- system zarządzania kontem użytkownika (rejestracja, zmiana hasła, przypomnienie hasła)
 - dodawanie nowych przepisów
-  - zdjecia potrawy
-  - skladniki
+  - zdjęcia potrawy
+  - składniki
   - sposób przygotowania
   - możliwość wydrukowania przepisu
 - przeglądanie aktualnie dodanych
@@ -28,7 +28,7 @@ Technologie:
 Cele do relizacji w pierwszym semestrze:
 - stworzenie diagramu bazy danych
 - implementacja bazy danych
-- polączenie z bazą danych
+- połączenie z bazą danych
 - stworzenie podstawowej funkcjonalności strony
   - dodanie formularzy do rejestracji i zarządzania kontem
   - umożliwienie dodania przepisu
