@@ -30,8 +30,8 @@ Cele do relizacji w pierwszym semestrze:
 - implementacja bazy danych
 - polączenie z bazą danych
 - stworzenie podstawowej funkcjonalnosci strony
-- - dodanie formularzy do rejestracji i zarządzania kontem
-- - umożliwienie dodania przepisu
-- - stworzenie funkcji walidującej dane
+  - dodanie formularzy do rejestracji i zarządzania kontem
+  - umożliwienie dodania przepisu
+  - stworzenie funkcji walidującej dane
 - stworzenie wstępnej wersji wyglądu
 - 
