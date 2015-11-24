@@ -34,4 +34,3 @@ Cele do relizacji w pierwszym semestrze:
   - umożliwienie dodania przepisu
   - stworzenie funkcji walidującej dane
 - stworzenie wstępnej wersji wyglądu
-- 
