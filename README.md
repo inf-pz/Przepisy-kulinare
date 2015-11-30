@@ -26,11 +26,11 @@ Technologie:
 - http://hibernate.org mapowanie na obiekty rekordów z bazy danych
 
 Cele do relizacji w pierwszym semestrze:
-- stworzenie diagramu bazy danych
-- implementacja bazy danych
-- połączenie z bazą danych
-- stworzenie podstawowej funkcjonalności strony
-  - dodanie formularzy do rejestracji i zarządzania kontem
-  - umożliwienie dodania przepisu
-  - stworzenie funkcji walidującej dane
-- stworzenie wstępnej wersji wyglądu
+- stworzenie diagramu bazy danych (M.Kassjański)
+- implementacja bazy danych (M.Kassjański)
+- połączenie z bazą danych (M.Kassjański, J.Matuszewski)
+- stworzenie podstawowej funkcjonalności strony (M.Gałaszewska, J.Matuszewski)
+  - dodanie formularzy do rejestracji i zarządzania kontem (J.Matuszewski)
+  - umożliwienie dodania przepisu (M.Gałaszewska)
+  - stworzenie funkcji walidującej dane (M.Gałaszewska)
+- stworzenie wstępnej wersji wyglądu (M.Kassjański)
