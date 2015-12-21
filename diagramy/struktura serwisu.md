@@ -1,0 +1,50 @@
+- Strona główna
+	- Pasek wyszukiwarki
+	- Logowanie
+		- Pola:
+			- e-mail
+			- hasło
+		- Przypomnienie hasła
+	- Rejestracja
+		- Formularz rejestracyjny		
+			- Imie
+			- Nazwisko
+			- data urodzenia
+			- adress e-mail
+			- hasło
+			- potwierdzenie hasła
+	- Panel Użytkownika
+		- Lista dodanych przepisów
+		- Lista ocenionych przepisów
+		- Zmiana hasła
+	- Dodanie przepisu
+		- Nazwa
+		- Składniki
+		- Opis
+		- Zdjęcie
+	- Katalog Przepisów
+		- Sortowanie
+			- Najnowsze
+			- Najwyżej ocenione
+		- Wyświetlenie przepisu
+			- składniki
+			- opis
+			- zdjęcia
+			- możliwość zgłoszenia niedozwolonych treści
+			- średnia ocen
+			- wyświetlanie komentarzy
+				- autor
+				- data
+				- treść
+				- zgłoś komentarz
+			- dodanie komentarza
+			- ocenienie przepisu
+			- drukowanie przepisu
+- Panel Administracyjny
+	- Lista zgłoszonych przepisów
+		- usuń przepis
+		- edytuj
+	- Lista zgłoszonych komentarzy
+		- usuń/edytuj
+	- Lista zajestrowanych użytkowników
+	- Lista dodanych przepisów z możliwością edycji
