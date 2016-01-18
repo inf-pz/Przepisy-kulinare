@@ -5,13 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<jsp:include page="../include/header.jsp" />
+
 </head>
 <body>
 
 
 
 <form method="post" action="${pageContext.request.contextPath}/docreateprzepis">
-<table>
+<table class="zui-table zui-table-horizontal zui-table-highlight">
 <tr><td>Tytuł: </td><td><input name="name" type="text"></td> </tr>
 <tr><td>Opis: </td><td><textarea name="text" rows="15" cols="25"></textarea></td> </tr>
 <tr><td>ID użytkownika: </td><td><input name="member_id" type="text"></td> </tr>
