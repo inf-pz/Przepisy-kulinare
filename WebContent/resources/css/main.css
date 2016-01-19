@@ -92,3 +92,7 @@ input[type="radio"] {
     border-left: none;
     border-right: none;
 }
+.error {
+	font-size: medium;
+	color: red;
+}
