@@ -10,7 +10,6 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
-<br>
     <table class="zui-table zui-table-horizontal zui-table-highlight">
         <thead>
             <tr>
