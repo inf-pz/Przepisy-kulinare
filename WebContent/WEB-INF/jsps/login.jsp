@@ -5,9 +5,12 @@
 
 <html>
 <head>
+
+
 <title>Logowanie</title>
 </head>
 <body onload='document.f.j_username.focus();'>
+	<jsp:include page="/resources/static/navbar.jsp" />
 	<h3>Zaloguj się</h3>
 	
 	<c:if test="${param.error != null}">

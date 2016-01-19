@@ -7,7 +7,7 @@
 <title>Rejestracja</title>
 </head>
 <body>
+<jsp:include page="/resources/static/navbar.jsp" />
 Konto zostało utworzone.
-<p><a href="${pageContext.request.contextPath}/">Strona głowna</a></p>
 </body>
 </html>

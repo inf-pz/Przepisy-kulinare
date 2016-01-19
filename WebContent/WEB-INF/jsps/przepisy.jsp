@@ -111,14 +111,7 @@ textarea {
 </style>
 </head>
 <body>
-<nav>
-<ul>
-<li><a href="/przepisy">Home</a></li>
-<li><a href="${pageContext.request.contextPath}/przepisy">Lista przepisów</a></li>
-<li><a href="${pageContext.request.contextPath}/nowyprzepis">Dodaj przepis</a></li>
-</ul>
-</nav>
-</br>
+<jsp:include page="/resources/static/navbar.jsp" />
 </br>
     <table class="zui-table zui-table-horizontal zui-table-highlight">
         <thead>

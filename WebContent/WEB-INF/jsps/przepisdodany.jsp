@@ -103,14 +103,7 @@ input[type="radio"] {
 </style>
 </head>
 <body>
-<nav>
-<ul>
-<li><a href="/przepisy">Home</a></li>
-<li><a href="${pageContext.request.contextPath}/przepisy">Lista przepisów</a></li>
-<li><a href="${pageContext.request.contextPath}/nowyprzepis">Dodaj przepis</a></li>
-</ul>
-</nav>
-</br>
+<jsp:include page="/resources/static/navbar.jsp" />
 Przepis został dodany!
 </br>
 <a href="${pageContext.request.contextPath}/przepisy">Lista przepisów</a>

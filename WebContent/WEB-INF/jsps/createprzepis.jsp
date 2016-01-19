@@ -110,14 +110,7 @@ textarea {
 </style>
 </head>
 <body>
-<nav>
-<ul>
-<li><a href="/przepisy">Home</a></li>
-<li><a href="${pageContext.request.contextPath}/przepisy">Lista przepisów</a></li>
-<li><a href="${pageContext.request.contextPath}/nowyprzepis">Dodaj przepis</a></li>
-</ul>
-</nav>
-</br>
+<jsp:include page="/resources/static/navbar.jsp" />
 
 
 <form method="post" action="${pageContext.request.contextPath}/docreateprzepis">
@@ -125,7 +118,7 @@ textarea {
 <tr><td>Tytuł: </td><td><input name="name" type="text"></td> </tr>
 <tr><td>Opis: </td><td><textarea name="text" rows="15" cols="25"></textarea></td> </tr>
 <tr><td>ID użytkownika: </td><td><input name="member_id" type="text"></td> </tr>
-<tr><td></td><td><input value="Dodaj" type="submit"></br></td> </tr>
+<tr><td></td><td><input value="Dodaj" type="submit"></td> </tr>
 </table>
 </form>
 

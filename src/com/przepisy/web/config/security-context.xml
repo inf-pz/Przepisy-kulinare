@@ -22,7 +22,7 @@
 		<security:intercept-url pattern="/rejestracja" access="permitAll" />
 		<security:intercept-url pattern="/nowekonto" access="permitAll" />
 		<security:intercept-url pattern="/accountcreated" access="permitAll" />
-		<security:intercept-url pattern="/include/**" access="permitAll" />
+		<security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/przepisy" access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />

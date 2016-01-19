@@ -1,11 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Dodaj przepis</title>
-<style>
 body {
 	background-color: #f5f6f8;
 	width: 1000px;
@@ -74,13 +66,6 @@ input[type="radio"] {
   margin-left: 40px;
 }
 
-textarea {
-  padding: 10px;
-  border: solid 1px #c9c9c9;
-  transition: border 0.3s;
-  margin-top: 5px;
-}
-
 .zui-table {
     border: solid 1px #9ec090 ;
     border-collapse: collapse;
@@ -107,14 +92,3 @@ textarea {
     border-left: none;
     border-right: none;
 }
-</style>
-</head>
-<body>
-<jsp:include page="/resources/static/navbar.jsp" />
-
-
-<p>Pola treść oraz tytuł nie mogą pozostać puste</p>
-
-
-</body>
-</html>

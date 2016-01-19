@@ -8,7 +8,7 @@
 
 </head>
 <body>
-
+<jsp:include page="/resources/static/navbar.jsp" />
 
 
 <form method="post" action="${pageContext.request.contextPath}/nowekonto">
