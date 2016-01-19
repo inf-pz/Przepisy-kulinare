@@ -1,11 +1,26 @@
 package com.przepisy.web.dao;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 public class User {
 
+	@NotBlank(message="Login nie może być pusty")
+	@Size(min=4, max=32, message="Login musi mieć od 4 do 32 znaków")
+	@Pattern(regexp="^\\w+$", message="Login może zawierać tylko znaki alfanumeryczne")
 	private String login;
+	
+	@NotBlank(message="Hasło nie może być puste")
+	@Size(min=4, max=32, message="Hasło musi mieć od 4 do 32 znaków")
+	@Pattern(regexp="^\\S+$", message="Hasło nie może zawierać spacji")
 	private String password_h;
+	
+	@Email(message="Adres e-mail nie jest poprawny")
 	private String email;
+	
 	private boolean active;
 	private String authority;
 	

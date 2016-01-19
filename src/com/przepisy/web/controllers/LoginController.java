@@ -1,8 +1,11 @@
 package com.przepisy.web.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,8 +36,12 @@ public class LoginController {
 	
 	
 	@RequestMapping(value="/nowekonto", method=RequestMethod.POST)
-	public String createAccount(Model model, User user) {
+	public String createAccount(@Valid User user, BindingResult result) {
 
+		if(result.hasErrors()){
+			return "newaccount";
+		}
+		
 		user.setActive(true);
 		user.setAuthority("user");
 		usersService.createUser(user);
