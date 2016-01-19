@@ -3,6 +3,7 @@ package com.przepisy.web.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,7 +45,19 @@ public class LoginController {
 		
 		user.setActive(true);
 		user.setAuthority("user");
+		
+		if(usersService.exist(user.getLogin())){
+			result.rejectValue("login", "DuplicateKey.user.login", "Podany login jest już zajęty");
+			return "newaccount";			
+		}
+		
+		try {
 		usersService.createUser(user);
+		} catch (DuplicateKeyException e) {
+			result.rejectValue("login", "DuplicateKey.user.login", "Podany login jest już zajęty");
+			return "newaccount";
+		}
+
 		
 		return "accountcreated";
 	}

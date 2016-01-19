@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +30,10 @@ public class UsersDao {
 		
 		return jdbc.update("insert into authorities (login, authority) values (:login, :authority)", params) == 1;
 		
+	}
+
+	public boolean exists(String login) {
+		return jdbc.queryForObject("select count(*) from members where login=:login", new MapSqlParameterSource("login", login), Integer.class) > 0;
 	}
 	
 }
