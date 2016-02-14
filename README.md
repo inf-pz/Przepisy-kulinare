@@ -44,5 +44,5 @@ Cele do relizacji w drugim semestrze:
   - zaimplementowanie panelu do szukania przepisów (M.Gałaszewska) 21.03.2016
   - stworzenie panelu do zgłaszania przepisów (M.Gałaszewska) 21.03.2016
   - dodanie panelu administratora (J.Matuszewski) 28.03.2016
-- kontynuacja praca nad wyglądem strony (M.Kassjański) 07.03.2016
+- kontynuacja pracy nad wyglądem strony (M.Kassjański) 07.03.2016
 - publikacja strony na serwerze (M.Kassjański) 28.03.2016
