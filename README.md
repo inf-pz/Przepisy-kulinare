@@ -43,5 +43,6 @@ Cele do relizacji w drugim semestrze:
   - dodanie możliwości komentowania przepisu
   - zaimplementowanie panelu do szukania przepisów
   - stworzenie panelu do zgłaszania przepisów
+  - dodanie panelu administratora
 - kontynuacja praca nad wyglądem strony
 - publikacja strony na serwerze
