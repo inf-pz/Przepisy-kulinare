@@ -15,10 +15,18 @@
 <li><a href="${pageContext.request.contextPath}/przepisy">Lista przepisów</a></li>
 <li><a href="${pageContext.request.contextPath}/nowyprzepis">Dodaj przepis</a></li>
 <sec:authorize access="isAuthenticated()">
-<li><a href="<c:url value='/j_spring_security_logout'/> "> Wyloguj</a></li>
+<div class="dropdown">
+  <span>Konto</span>
+  <div class="dropdown-content">
+<a href="${pageContext.request.contextPath}/ustawienia">Ustawienia</a>
+  </div>
+</div>
 </sec:authorize>
 <sec:authorize access="!isAuthenticated()">
 <li><a href="${pageContext.request.contextPath}/login">Zaloguj</a></li>
+</sec:authorize>
+<sec:authorize access="isAuthenticated()">
+<li><a href="<c:url value='/j_spring_security_logout'/> "> Wyloguj</a></li>
 </sec:authorize>
 </ul>
 </nav>

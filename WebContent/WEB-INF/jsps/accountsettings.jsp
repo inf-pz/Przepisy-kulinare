@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<link href="${pageContext.request.contextPath}/resources/css/withPassword.css" rel="stylesheet" type="text/css" >
+<head><link href="${pageContext.request.contextPath}/resources/css/withPassword.css" rel="stylesheet" type="text/css" >
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/jquery.js"></script>
 
 <script type="text/javascript">
@@ -45,26 +45,23 @@ function checkPasswordsMatch(){
 $(document).ready(onLoad);
 
 </script>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Rejestracja</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ustawienia konta</title>
 
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 
 <br>
-<form:form id="userForm" method="post" action="${pageContext.request.contextPath}/nowekonto">
+<form id="userForm" method="post" action="${pageContext.request.contextPath}/ustawieniaUpdate">
 <table>
-<tr><td>Login: </td><td><form:input path="login" type="text"/> <br/><div class="error"><form:errors path="login"></form:errors></div> </td> </tr>
-<tr><td>Hasło: </td><td><form:input id="password" path="password_h" type="password"/> <br/><div class="error"> <form:errors path="password_h"></form:errors></div> </td> </tr>
+<tr><td>Obecne hasło: </td><td><input id="password_old" name="password_old" type="password"/> <br/><div class="error"><c:out value="${error}"/> </div> </td> </tr>
+<tr><td>Nowe hasło: </td><td><input id="password" name="password_h" type="password"/> <br/><div class="error"> </div> </td> </tr>
 <tr><td>Powtórz hasło:</td><td><input id="confirmpassword" name="confirmpassword" type="password"/><div id="matchpass"></div> </td> </tr>
-<tr><td>E-mail: </td><td><form:input path="email" type="text"/> <br/><div class="error"><form:errors path="email"></form:errors></div> </td> </tr>
-<tr><td></td><td><input value="Zarejestruj" type="submit"/><br/> </td> </tr>
+<tr><td>E-mail: </td><td><input name="email" type="text" value="<c:out value="${email}"/>" /> <br/><div class="error"></div> </td> </tr>
+<tr><td></td><td><input value="Zapisz" type="submit"/><br/> </td> </tr>
 </table>
-</form:form>
-
-
+</form>
 
 </body>
 </html>

@@ -21,9 +21,17 @@ public class UsersService {
 		usersDao.create(user);
 		
 	}
+	
+	public User findUser(String login){
+		return usersDao.find(login);
+	}
 
 
 	public boolean exist(String login) {
 		return usersDao.exists(login);
+	}
+	
+	public void updateUser(User user){
+		usersDao.update(user);
 	}
 }

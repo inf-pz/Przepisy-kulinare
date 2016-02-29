@@ -1,9 +1,13 @@
 package com.przepisy.web.dao;
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -31,7 +35,34 @@ public class UsersDao {
 		return jdbc.update("insert into authorities (login, authority) values (:login, :authority)", params) == 1;
 		
 	}
+	
+	public void update(User user){
+		
+		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
+		
+		jdbc.update("update members SET email=:email, password_h=:password_h, active=:active where login=:login", params);
+	}
 
+	public User find(String login){
+		
+		return jdbc.queryForObject("select * from members where login=:login",new MapSqlParameterSource("login", login), new RowMapper<User>(){
+
+			@Override
+			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+				User user = new User();
+				
+				user.setLogin(rs.getString("login"));
+				user.setPassword_h(rs.getString("password_h"));
+				user.setEmail(rs.getString("email"));
+				user.setActive(rs.getBoolean("active"));
+				
+				
+				return user;
+			}
+			
+		});
+	}
+	
 	public boolean exists(String login) {
 		return jdbc.queryForObject("select count(*) from members where login=:login", new MapSqlParameterSource("login", login), Integer.class) > 0;
 	}

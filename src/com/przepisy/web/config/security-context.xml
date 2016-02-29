@@ -17,6 +17,8 @@
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/nowyprzepis" access="isAuthenticated()" />
 		<security:intercept-url pattern="/docreateprzepis" access="isAuthenticated()" />
+		<security:intercept-url pattern="/ustawieniaUpdate" access="isAuthenticated()" />
+		<security:intercept-url pattern="/ustawienia" access="isAuthenticated()" />
 		<security:intercept-url pattern="/przepisdodany" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/rejestracja" access="permitAll" />
