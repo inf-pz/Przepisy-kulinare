@@ -10,12 +10,12 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
+<h1>Twoje przepisy:</h1>
     <table class="zui-table zui-table-horizontal zui-table-highlight">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Text</th>
-                <th>Autor</th>
+                <th>Nazwa</th>
+                <th>Treść</th>
             </tr>
             </thead>
             <tbody>
@@ -25,7 +25,6 @@
 <tr>
              <td>${przepis.name}</td>
              <td>${przepis.text}</td>
-             <td>${przepis.username}</td>
    </tr>
 </c:forEach>
 </tbody>

@@ -36,7 +36,7 @@ public class PrzepisyDao {
 				przepis.setName(rs.getString("name"));
 				przepis.setText(rs.getString("text"));
 				przepis.setStatus(rs.getInt("status"));
-				przepis.setMember_id(rs.getInt("member_id"));
+				przepis.setUsername(rs.getString("username"));
 				
 				return przepis;
 			}
@@ -59,7 +59,7 @@ public class PrzepisyDao {
 				przepis.setName(rs.getString("name"));
 				przepis.setText(rs.getString("text"));
 				przepis.setStatus(rs.getInt("status"));
-				przepis.setMember_id(rs.getInt("member_id"));
+				przepis.setUsername(rs.getString("username"));
 				
 				return przepis;
 			}
@@ -71,7 +71,7 @@ public class PrzepisyDao {
 		
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(przepis);
 		
-		return jdbc.update("update recipes set name=:name, text=:text, status=:status, member_id=:member_id where id_recipe=:id", params) == 1;
+		return jdbc.update("update recipes set name=:name, text=:text, status=:status, username=:username where id_recipe=:id", params) == 1;
 		
 	}
 	
@@ -79,7 +79,7 @@ public class PrzepisyDao {
 		
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(przepis);
 		
-		return jdbc.update("insert into recipes (name, text, status, member_id) values (:name, :text, :status, :member_id)", params) == 1;
+		return jdbc.update("insert into recipes (name, text, status, username) values (:name, :text, :status, :username)", params) == 1;
 		
 	}
 	
@@ -88,4 +88,28 @@ public class PrzepisyDao {
 		
 		return jdbc.update("delete from recipes where id_recipe=:id", params) == 1;
 	}
+
+	public List<Przepis> getPrzepisy(String username) {
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("username", username);
+		
+		return jdbc.query("select * from recipes where username=:username", params, new RowMapper<Przepis>(){
+
+			@Override
+			public Przepis mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Przepis przepis = new Przepis();
+				
+				przepis.setId(rs.getInt("id_recipe"));
+				przepis.setName(rs.getString("name"));
+				przepis.setText(rs.getString("text"));
+				przepis.setStatus(rs.getInt("status"));
+				przepis.setUsername(rs.getString("username"));
+				
+				return przepis;
+			}
+			
+		});
+	}
+		
+		
 }

@@ -74,6 +74,7 @@ public class LoginController {
 		
 	}
 	
+	
 	@RequestMapping(value="/nowekonto", method=RequestMethod.POST)
 	public String createAccount(@Valid User user, BindingResult result) {
 

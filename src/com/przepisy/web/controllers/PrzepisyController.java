@@ -1,5 +1,6 @@
 package com.przepisy.web.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +60,22 @@ public class PrzepisyController {
 	}
 
 	@RequestMapping(value = "/docreateprzepis", method = RequestMethod.POST)
-	public String doCreatePrzepis(Model model, Przepis przepis) {
+	public String doCreatePrzepis(Model model, Przepis przepis,  Principal principal) {
+		String username = principal.getName();
+		przepis.setUsername(username);
 		if (validate(przepis) == false)
 			return "createprzepiserror";
 		else {
 			przepisyService.createPrzepis(przepis);
 			return "przepisdodany";
 		}
+	}
+	
+	@RequestMapping("/mojeprzepisy")
+	public String userPrzepisy(Model model, Principal principal){
+		String username = principal.getName();
+		List<Przepis> przepisy = przepisyService.getPrzepisy(username);
+		model.addAttribute("przepisy", przepisy);
+		return "accountprzepisy";
 	}
 }

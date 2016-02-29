@@ -6,16 +6,16 @@ public class Przepis {
 	private String name;
 	private String text;
 	private int status;
-	private int member_id;
+	private String username;
 	
 	public Przepis(){
 		
 	}
-	public Przepis(String name, String text, int status, int member_id) {
+	public Przepis(String name, String text, int status, String username) {
 		this.name = name;
 		this.text = text;
 		this.status = status;
-		this.member_id = member_id;
+		this.username = username;
 	}
 	
 	public int getId() {
@@ -42,16 +42,16 @@ public class Przepis {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public int getMember_id() {
-		return member_id;
+	public String getUsername() {
+		return username;
 	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	@Override
 	public String toString() {
-		return "Przepis [id=" + id + ", name=" + name + ", text=" + text + ", status=" + status + ", member_id="
-				+ member_id + "]";
+		return "Przepis [id=" + id + ", name=" + name + ", text=" + text + ", status=" + status + ", username="
+				+ username + "]";
 	}
 }
 

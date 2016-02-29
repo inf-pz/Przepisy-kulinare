@@ -28,4 +28,8 @@ public class PrzepisyService {
 		przepisyDao.create(przepis);
 		
 	}
+	
+	public List<Przepis> getPrzepisy(String username){
+		return przepisyDao.getPrzepisy(username);
+	}
 }

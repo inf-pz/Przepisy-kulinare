@@ -19,6 +19,7 @@
   <span>Konto</span>
   <div class="dropdown-content">
 <a href="${pageContext.request.contextPath}/ustawienia">Ustawienia</a>
+<a href="${pageContext.request.contextPath}/mojeprzepisy">Moje przepisy</a>
   </div>
 </div>
 </sec:authorize>

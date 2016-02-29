@@ -18,6 +18,7 @@
 		<security:intercept-url pattern="/nowyprzepis" access="isAuthenticated()" />
 		<security:intercept-url pattern="/docreateprzepis" access="isAuthenticated()" />
 		<security:intercept-url pattern="/ustawieniaUpdate" access="isAuthenticated()" />
+		<security:intercept-url pattern="/mojeprzepisy" access="isAuthenticated()" />
 		<security:intercept-url pattern="/ustawienia" access="isAuthenticated()" />
 		<security:intercept-url pattern="/przepisdodany" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
