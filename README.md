@@ -34,3 +34,15 @@ Cele do relizacji w pierwszym semestrze:
   - umożliwienie dodania przepisu (M.Gałaszewska)
   - stworzenie funkcji walidującej dane (M.Gałaszewska)
 - stworzenie wstępnej wersji wyglądu (M.Kassjański)
+
+Cele do relizacji w drugim semestrze:
+- dalsza praca nad funkcjonalnością strony:
+  - stworzenie panelu zarzadzania kontem (J.Matuszewski) 29.02.2016
+  - rozbudowanie panelu dodania przepisu (M.Gałaszewska) 07.03.2016
+  - dodanie możliwości oceny przepisu (J.Matuszewski) 14.03.2016
+  - dodanie możliwości komentowania przepisu (J.Matuszewski) 14.03.2016
+  - zaimplementowanie panelu do szukania przepisów (M.Gałaszewska) 21.03.2016
+  - stworzenie panelu do zgłaszania przepisów (M.Gałaszewska) 21.03.2016
+  - dodanie panelu administratora (J.Matuszewski) 28.03.2016
+- kontynuacja pracy nad wyglądem strony (M.Kassjański) 07.03.2016
+- publikacja strony na serwerze (M.Kassjański) 28.03.2016
