@@ -57,8 +57,8 @@ $(document).ready(onLoad);
 <form:form id="userForm" method="post" action="${pageContext.request.contextPath}/nowekonto" commandName="user">
 <table>
 <tr><td>Login: </td><td><form:input path="login" type="text"/> <br/><div class="error"><form:errors path="login"></form:errors></div> </td> </tr>
-<tr><td>Hasło: </td><td><form:input id="password" path="password_h" type="text"/> <br/><div class="error"> <form:errors path="password_h"></form:errors></div> </td> </tr>
-<tr><td>Powtórz hasło:</td><td><input id="confirmpassword" name="confirmpassword" type="text"/><div id="matchpass"></div> </td> </tr>
+<tr><td>Hasło: </td><td><form:input id="password" path="password_h" type="password"/> <br/><div class="error"> <form:errors path="password_h"></form:errors></div> </td> </tr>
+<tr><td>Powtórz hasło:</td><td><input id="confirmpassword" name="confirmpassword" type="password"/><div id="matchpass"></div> </td> </tr>
 <tr><td>E-mail: </td><td><form:input path="email" type="text"/> <br/><div class="error"><form:errors path="email"></form:errors></div> </td> </tr>
 <tr><td></td><td><input value="Zarejestruj" type="submit"/><br/> </td> </tr>
 </table>
