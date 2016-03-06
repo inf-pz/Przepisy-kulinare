@@ -13,6 +13,6 @@
 </br>
 Witamy serdecznie na stronie dla miłośników wspaniałych przepisów!
 
-
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

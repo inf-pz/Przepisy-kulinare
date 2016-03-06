@@ -1,11 +1,20 @@
-body {
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+  body {
 	background-color: #f5f6f8;
-	width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+	width: 800px;
+ 	margin: auto;
     font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-     padding: 20px 50px 150px;
-    
+    padding: 20px 50px 100px;
+    position: relative;
+    min-height: 100%;
 }
 
 /* Giving a background-color to the nav container. */
@@ -53,7 +62,7 @@ nav a {
  
 /* Background color change on Hover */
 nav a:hover {
-   background-color: #c2dcc1;
+   background-color: #77a375;
 }
 input[type="text"] {
   padding: 10px;
@@ -61,6 +70,14 @@ input[type="text"] {
   transition: border 0.3s;
   margin-top: 5px;
 }
+
+input[type="password"] {
+  padding: 10px;
+  border: solid 1px #c9c9c9;
+  transition: border 0.3s;
+  margin-top: 5px;
+}
+
 input[type="radio"] {
   padding: 10px;
   margin-left: 40px;
@@ -95,4 +112,55 @@ input[type="radio"] {
 .error {
 	font-size: medium;
 	color: red;
+}
+#przepisGlobal{
+	margin: 0 auto;
+	margin-left: 20px;
+}
+#przepis{
+	display: inline-table;
+	border-style: dotted;
+	width: 30%;
+	height: 200px;
+	padding: 10px;
+	margin: 5px;
+	border-radius:2em;
+	border: 2px dashed #376e32;
+	
+}
+footer {
+  position: absolute;
+  right: auto;
+  bottom: 0;
+  left: auto;
+  background-color: #d7e2cb;
+  text-align: center;
+  width: 700px;
+  border-radius:2em;
+}
+
+.btn {
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #9abd95;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: groove;
+}
+
+.btn:hover {
+  background: #6c9670;
+  text-decoration: none;
+}
+
+.header-logo {
+display:block;
+width:283px;
+height:76px;
+background:url(http://i.imgur.com/v1QRRBY.png) no-repeat;
+text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
 }

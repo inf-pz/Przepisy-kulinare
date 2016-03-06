@@ -65,6 +65,6 @@ $(document).ready(onLoad);
 </form:form>
 
 
-
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

@@ -13,6 +13,6 @@
 
 <p>Pola treść oraz tytuł nie mogą pozostać puste</p>
 
-
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

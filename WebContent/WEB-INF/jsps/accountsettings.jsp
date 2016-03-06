@@ -59,9 +59,9 @@ $(document).ready(onLoad);
 <tr><td>Nowe hasło: </td><td><input id="password" name="password_h" type="password"/> <br/><div class="error"> </div> </td> </tr>
 <tr><td>Powtórz hasło:</td><td><input id="confirmpassword" name="confirmpassword" type="password"/><div id="matchpass"></div> </td> </tr>
 <tr><td>E-mail: </td><td><input name="email" type="text" value="<c:out value="${email}"/>" /> <br/><div class="error"></div> </td> </tr>
-<tr><td></td><td><input value="Zapisz" type="submit"/><br/> </td> </tr>
+<tr><td></td><td><input value="Zapisz" class="btn" type="submit"/><br/> </td> </tr>
 </table>
 </form>
-
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>
