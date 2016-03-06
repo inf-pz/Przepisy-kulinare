@@ -54,7 +54,7 @@ $(document).ready(onLoad);
 <jsp:include page="/resources/static/navbar.jsp" />
 
 <br>
-<form:form id="userForm" method="post" action="${pageContext.request.contextPath}/nowekonto">
+<form:form id="userForm" method="post" action="${pageContext.request.contextPath}/nowekonto" commandName="user">>
 <table>
 <tr><td>Login: </td><td><form:input path="login" type="text"/> <br/><div class="error"><form:errors path="login"></form:errors></div> </td> </tr>
 <tr><td>Hasło: </td><td><form:input id="password" path="password_h" type="password"/> <br/><div class="error"> <form:errors path="password_h"></form:errors></div> </td> </tr>
