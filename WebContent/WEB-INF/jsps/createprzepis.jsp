@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,13 +12,14 @@
 <jsp:include page="/resources/static/navbar.jsp" />
 
 
-<form method="post" action="${pageContext.request.contextPath}/docreateprzepis">
+<sf:form method="post"  commandName="przepis" enctype="multipart/form-data" action="${pageContext.request.contextPath}/docreateprzepis">
 <table>
-<tr><td>Tytuł: </td><td><input name="name" type="text"></td> </tr>
-<tr><td>Opis: </td><td><textarea name="text" rows="15" cols="25"></textarea></td> </tr>
+<tr><td>Tytuł: </td><td><sf:input path="name" id="name"/></td> </tr>
+<tr><td>Opis: </td><td><sf:textarea path="text" id="text" rows="15" cols="25"/></td> </tr>
+<tr><td>Zdjęcie: </td><td><input name="photo" type="file"/> </td></tr>
 <tr><td></td><td><input value="Dodaj" class="btn" type="submit"></td> </tr>
 </table>
-</form>
+</sf:form>
 
 
 <jsp:include page="/resources/static/footer.jsp" />

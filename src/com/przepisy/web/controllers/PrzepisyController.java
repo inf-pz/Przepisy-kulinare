@@ -6,8 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.przepisy.web.dao.Przepis;
 import com.przepisy.web.service.PrzepisyService;
@@ -33,8 +36,9 @@ public class PrzepisyController {
 	}
 
 	@RequestMapping("/nowyprzepis")
-	public String createPrzepis() {
+	public String createPrzepis(Model model) {
 
+		model.addAttribute("przepis", new Przepis());
 		return "createprzepis";
 	}
 
@@ -58,14 +62,35 @@ public class PrzepisyController {
 		} else
 		return true;
 	}
+	
+	private void validateImage(MultipartFile image) {
+		if (!image.getContentType().equals("image/jpeg")) {
+		throw new RuntimeException("Format jpg jest wymagany");
+		}
+		}
+	
+	
 
-	@RequestMapping(value = "/docreateprzepis", method = RequestMethod.POST)
-	public String doCreatePrzepis(Model model, Przepis przepis,  Principal principal) {
+	@RequestMapping(value = "/docreateprzepis", headers = "content-type=multipart/*", method = RequestMethod.POST)
+	public String doCreatePrzepis(Model model, Przepis przepis, BindingResult result,  Principal principal, 
+			@RequestParam(value = "image", required = false) MultipartFile image) {
 		String username = principal.getName();
 		przepis.setUsername(username);
+		
+		if (!(image == null)) {
+			try {
+			validateImage(image);
+			 
+			} catch (RuntimeException re) {
+			result.reject(re.getMessage());
+			return "createprzepis";
+			}
+		}
+			
 		if (validate(przepis) == false)
 			return "createprzepiserror";
 		else {
+			przepis.setPhoto(image);
 			przepisyService.createPrzepis(przepis);
 			return "przepisdodany";
 		}

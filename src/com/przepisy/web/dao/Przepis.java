@@ -1,5 +1,7 @@
 package com.przepisy.web.dao;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Przepis {
 
 	private int id;
@@ -7,15 +9,23 @@ public class Przepis {
 	private String text;
 	private int status;
 	private String username;
+	private MultipartFile photo;
 	
+	public MultipartFile getPhoto() {
+		return photo;
+	}
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
+	}
 	public Przepis(){
 		
 	}
-	public Przepis(String name, String text, int status, String username) {
+	public Przepis(String name, String text, int status, String username, MultipartFile photo) {
 		this.name = name;
 		this.text = text;
 		this.status = status;
 		this.username = username;
+		this.photo = photo;
 	}
 	
 	public int getId() {
