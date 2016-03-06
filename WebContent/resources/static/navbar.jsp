@@ -9,6 +9,11 @@
 <link href="${pageContext.request.contextPath}/resources/css/navbar.css" rel="stylesheet" type="text/css" >
 </head>
 <body>
+<header>
+	<h1>
+<a class="header-logo" href="http://localhost:8080/przepisy/">Przepisy kulinarne</a>
+	</h1>
+</header>
 <nav>
 <ul>
 <li><a href="${pageContext.request.contextPath}/">Strona główna</a></li>

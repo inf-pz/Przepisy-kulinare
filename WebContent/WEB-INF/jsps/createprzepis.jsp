@@ -15,11 +15,11 @@
 <table>
 <tr><td>Tytuł: </td><td><input name="name" type="text"></td> </tr>
 <tr><td>Opis: </td><td><textarea name="text" rows="15" cols="25"></textarea></td> </tr>
-<tr><td></td><td><input value="Dodaj" type="submit"></td> </tr>
+<tr><td></td><td><input value="Dodaj" class="btn" type="submit"></td> </tr>
 </table>
 </form>
 
 
-
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

@@ -29,5 +29,6 @@
 </c:forEach>
 </tbody>
 </table>
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

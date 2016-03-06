@@ -11,4 +11,5 @@
 <jsp:include page="/resources/static/navbar.jsp" />
 </body>
 Ustawienia zostały zaktualizowane.
+<jsp:include page="/resources/static/footer.jsp" />
 </html>

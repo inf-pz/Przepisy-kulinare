@@ -10,25 +10,15 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
-    <table class="zui-table zui-table-horizontal zui-table-highlight">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Text</th>
-                <th>Autor</th>
-            </tr>
-            </thead>
-            <tbody>
-
-
+<div id="przepisGlobal">
 <c:forEach var="przepis" items="${przepisy}">
-<tr>
-             <td>${przepis.name}</td>
-             <td>${przepis.text}</td>
-             <td>${przepis.username}</td>
-   </tr>
+<div id="przepis">
+             <p>${przepis.name}</p>
+             <p>Przepis:${przepis.text}</p>
+             <p>Autor:${przepis.username}</p>
+</div>
 </c:forEach>
-</tbody>
-</table>
+</div>
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

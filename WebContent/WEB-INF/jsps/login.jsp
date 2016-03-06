@@ -30,13 +30,14 @@
 				<td>Hasło:</td>
 				<td><input type='password' name='j_password' /></td>
 			</tr>
-			<tr>
-				<td colspan='2'><input name="submit" type="submit"
-					value="Zaloguj się" /></td>
+			<tr><td>
+				<td><input name="submit" class="btn" type="submit"
+					value="Zaloguj się" /><br/> </td> </tr>
 			</tr>
-		</table>
+		<tr><td></td> </tr><tr><td></td> </tr><tr><td></td> </tr>
+	<tr><td></td><td><a class="btn" href="<c:url value="/rejestracja"/> ">Zarejestruj się</a><br/> </td> </tr>
+	<jsp:include page="/resources/static/footer.jsp" />
+			</table>
 	</form>
-	
-	<p><a href="<c:url value="/rejestracja"/> ">Zarejestruj się</a></p>
 </body>
 </html>

@@ -11,6 +11,6 @@
 <jsp:include page="/resources/static/navbar.jsp" />
 Przepis został dodany!
 <a href="${pageContext.request.contextPath}/przepisy">Lista przepisów</a>
-
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

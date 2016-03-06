@@ -10,5 +10,6 @@
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 Zostałeś wylogowany.
+<jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>
