@@ -1,5 +1,8 @@
 # Projekt przepisy kulinarne
 
+deployed app:
+https://przepisy-kulinarne.rhcloud.com/
+
 Skład grupy:
 - Martyna Gałaszewska
 - Jan Matuszewski
