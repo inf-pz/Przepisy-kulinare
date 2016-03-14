@@ -71,6 +71,7 @@ input[type="text"] {
   margin-top: 5px;
 }
 
+
 input[type="password"] {
   padding: 10px;
   border: solid 1px #c9c9c9;
@@ -117,6 +118,10 @@ input[type="radio"] {
 	margin: 0 auto;
 	margin-left: 20px;
 }
+#newcomment{
+	margin-left: 10%;
+	algin: center;
+}
 #przepis{
 	display: inline-table;
 	border-style: dotted;
@@ -124,6 +129,18 @@ input[type="radio"] {
 	height: 200px;
 	padding: 10px;
 	margin: 5px;
+	border-radius:2em;
+	border: 2px dashed #376e32;
+	
+}
+#comment{
+	display: inline-table;
+	margin-left: 20%;
+	algin: center;
+	border-style: dotted;
+	width: 60%;
+	height: 200px;
+
 	border-radius:2em;
 	border: 2px dashed #376e32;
 	

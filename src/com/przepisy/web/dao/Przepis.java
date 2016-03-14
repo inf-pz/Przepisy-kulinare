@@ -1,7 +1,6 @@
 package com.przepisy.web.dao;
 
 import java.sql.Blob;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,6 +18,13 @@ public class Przepis {
 	private int id;
 	private String name;
 	private String text;
+	@Lob
+	private Blob photo;
+	@ManyToOne
+	@JoinColumn(name="login")
+	private User user;
+	private int status;
+
 	public Blob getPhoto() {
 		return photo;
 	}
@@ -26,14 +32,7 @@ public class Przepis {
 	public void setPhoto(Blob photo) {
 		this.photo = photo;
 	}
-	private int status;
 	
-	@Lob
-	private Blob photo;
-	
-	@ManyToOne
-	@JoinColumn(name="login")
-	private User user;
 
 	public Przepis(){
 		this.user = new User();

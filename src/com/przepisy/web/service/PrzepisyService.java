@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.przepisy.web.dao.Comment;
 import com.przepisy.web.dao.Przepis;
 import com.przepisy.web.dao.PrzepisyDao;
 
@@ -35,5 +36,13 @@ public class PrzepisyService {
 	
 	public Przepis getPrzepis(int id){
 		return przepisyDao.getPrzepis(id);
+	}
+	
+	public List<Comment> getComments(Przepis przepis){
+		return przepisyDao.getComments(przepis);
+	}
+	
+	public void savePrzepis(Przepis przepis){
+		przepisyDao.update(przepis);
 	}
 }

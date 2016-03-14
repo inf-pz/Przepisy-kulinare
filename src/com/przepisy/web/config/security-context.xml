@@ -21,6 +21,7 @@
 		<security:intercept-url pattern="/mojeprzepisy" access="isAuthenticated()" />
 		<security:intercept-url pattern="/ustawienia" access="isAuthenticated()" />
 		<security:intercept-url pattern="/przepisdodany" access="isAuthenticated()" />
+		<security:intercept-url pattern="/nowycomment" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/rejestracja" access="permitAll" />
 		<security:intercept-url pattern="/logout" access="permitAll" />

@@ -64,6 +64,16 @@ public class PrzepisyDao {
 		crit.createAlias("user", "u").add(Restrictions.eq("u.login", login));
 		return crit.list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Comment>getComments(Przepis przepis){
+		Criteria crit = session().createCriteria(Comment.class);
+		crit.add(Restrictions.idEq(przepis.getId()));
+		return crit.list();
+	}
+	
+	
+	
 		
 		
 }
