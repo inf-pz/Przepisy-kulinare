@@ -1,0 +1,166 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+  body {
+	background-color: #f5f6f8;
+	width: 800px;
+ 	margin: auto;
+    font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 20px 50px 100px;
+    position: relative;
+    min-height: 100%;
+}
+
+/* Giving a background-color to the nav container. */
+nav {
+   margin: 0px 0;
+   background-color: #d0dcc1;
+   border-radius:2em;
+}
+ 
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+ 
+nav:after {
+   content:"";
+   display:table;
+   clear:both;
+}
+ 
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+   padding:0;
+   margin:0;
+   list-style: none;
+   position: relative;
+   }
+ 
+/* Positioning the navigation items inline */
+nav ul li {
+   margin: 0px;
+   display:inline-block;
+   float: left;
+   }
+ 
+/* Styling the links */
+nav a {
+   display:block;
+   padding:0 10px;
+   color:#000000;
+   font-size:20px;
+   line-height: 60px;
+   text-decoration:none;
+   border-radius:2em;
+}
+ 
+/* Background color change on Hover */
+nav a:hover {
+   background-color: #77a375;
+}
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #c9c9c9;
+  transition: border 0.3s;
+  margin-top: 5px;
+}
+
+input[type="password"] {
+  padding: 10px;
+  border: solid 1px #c9c9c9;
+  transition: border 0.3s;
+  margin-top: 5px;
+}
+
+input[type="radio"] {
+  padding: 10px;
+  margin-left: 40px;
+}
+
+.zui-table {
+    border: solid 1px #9ec090 ;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 14px Arial, sans-serif;
+    width: 100%;
+}
+.zui-table thead th {
+    background-color: #9ec090;
+    border: solid 1px #9ec090;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+.zui-table tbody td {
+    border: solid 1px #9ec090;
+    color: #333;
+    padding: 10px;
+}
+.zui-table-highlight tbody tr:hover {
+    background-color: #a6c090;
+}
+.zui-table-horizontal tbody td {
+    border-left: none;
+    border-right: none;
+}
+.error {
+	font-size: medium;
+	color: red;
+}
+#przepisGlobal{
+	margin: 0 auto;
+	margin-left: 20px;
+}
+#przepis{
+	display: inline-table;
+	border-style: dotted;
+	width: 30%;
+	height: 200px;
+	padding: 10px;
+	margin: 5px;
+	border-radius:2em;
+	border: 2px dashed #376e32;
+	
+}
+footer {
+  position: absolute;
+  right: auto;
+  bottom: 0;
+  left: auto;
+  background-color: #d7e2cb;
+  text-align: center;
+  width: 700px;
+  border-radius:2em;
+}
+
+.btn {
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #9abd95;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: groove;
+}
+
+.btn:hover {
+  background: #6c9670;
+  text-decoration: none;
+}
+
+.header-logo {
+display:block;
+width:283px;
+height:76px;
+background:url(http://i.imgur.com/v1QRRBY.png) no-repeat;
+text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
+}

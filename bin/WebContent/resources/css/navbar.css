@@ -1,0 +1,76 @@
+
+.dropdown {
+   padding:0 10px;
+   color:#000000;
+   font-size:20px;
+   line-height: 60px;
+   text-decoration:none;
+   border-radius:2em;
+ 	float: left;
+   display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 100px;
+    z-index: 1;
+    padding:0 10px;
+   	color:#000000;
+   	font-size:20px;
+   	line-height: 60px;
+   	background-color: #d0dcc1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Giving a background-color to the nav container. */
+nav {
+   margin: 0px 0;
+   background-color: #d0dcc1;
+   border-radius:2em;
+}
+ 
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+ 
+nav:after {
+   content:"";
+   display:table;
+   clear:both;
+}
+ 
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+   padding:0;
+   margin:0;
+   list-style: none;
+   position: relative;
+   }
+ 
+/* Positioning the navigation items inline */
+nav ul li {
+   margin: 0px;
+   display:inline-block;
+   float: left;
+   }
+ 
+/* Styling the links */
+nav a {
+   display:block;
+   padding:0 10px;
+   color:#000000;
+   font-size:20px;
+   line-height: 60px;
+   text-decoration:none;
+   border-radius:2em;
+}
+ 
+/* Background color change on Hover */
+nav a:hover {
+   background-color: #77a375;
+}
