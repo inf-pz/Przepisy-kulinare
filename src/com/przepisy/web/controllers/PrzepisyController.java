@@ -1,28 +1,40 @@
 package com.przepisy.web.controllers;
 
 import java.security.Principal;
+import java.sql.Blob;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.przepisy.web.dao.Przepis;
+import com.przepisy.web.dao.User;
 import com.przepisy.web.service.PrzepisyService;
+import com.przepisy.web.service.UsersService;
 
 @Controller
 public class PrzepisyController {
 
+	private static Logger logger = Logger.getLogger(HomeController.class);
+	
 	private PrzepisyService przepisyService;
+	private UsersService usersService;
 
 	@Autowired
 	public void setPrzepisyService(PrzepisyService przepisyService) {
 		this.przepisyService = przepisyService;
+	}
+	
+	@Autowired
+	public void setUsersService(UsersService usersService) {
+		this.usersService = usersService;
 	}
 
 	@RequestMapping("/przepisy")
@@ -63,19 +75,14 @@ public class PrzepisyController {
 		return true;
 	}
 	
-	private void validateImage(MultipartFile image) {
-		if (!image.getContentType().equals("image/jpeg")) {
-		throw new RuntimeException("Format jpg jest wymagany");
-		}
-		}
 	
 	
 
 	@RequestMapping(value = "/docreateprzepis", headers = "content-type=multipart/*", method = RequestMethod.POST)
 	public String doCreatePrzepis(Model model, Przepis przepis, BindingResult result,  Principal principal, 
-			@RequestParam(value = "image", required = false) MultipartFile image) {
-		String username = principal.getName();
-		przepis.setUsername(username);
+			@RequestParam(value = "image", required = false) Blob image) {
+		
+		przepis.setUser(usersService.findUser(principal.getName()));
 		
 		if (!(image == null)) {
 			try {
@@ -90,12 +97,16 @@ public class PrzepisyController {
 		if (validate(przepis) == false)
 			return "createprzepiserror";
 		else {
-			przepis.setPhoto(image);
 			przepisyService.createPrzepis(przepis);
 			return "przepisdodany";
 		}
 	}
 	
+	private void validateImage(Blob image) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@RequestMapping("/mojeprzepisy")
 	public String userPrzepisy(Model model, Principal principal){
 		String username = principal.getName();

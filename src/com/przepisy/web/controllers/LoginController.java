@@ -58,10 +58,10 @@ public class LoginController {
 		
 		String username = principal.getName();
 		User user = usersService.findUser(username);
-		if (user.getPassword_h().equals(password_old)) {
+		if (user.getPassword().equals(password_old)) {
 			user.setEmail(newEmail);
 			if (!newPassword.equals("")){
-			user.setPassword_h(newPassword);
+			user.setPassword(newPassword);
 			}
 			usersService.updateUser(user);
 			return "ustawieniazapisano";

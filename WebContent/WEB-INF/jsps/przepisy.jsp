@@ -15,7 +15,7 @@
 <div id="przepis">
              <p>${przepis.name}</p>
              <p>Przepis:${przepis.text}</p>
-             <p>Autor:${przepis.username}</p>
+             <p>Autor:${przepis.user.login}</p>
 </div>
 </c:forEach>
 </div>

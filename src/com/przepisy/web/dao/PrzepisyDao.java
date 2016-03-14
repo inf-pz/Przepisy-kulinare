@@ -1,114 +1,68 @@
 package com.przepisy.web.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
-import javax.sql.DataSource;
-
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Component("przepisyDao")
 public class PrzepisyDao {
 
-	private NamedParameterJdbcTemplate jdbc;
-	
 	
 	@Autowired
-	public void setDataSource(DataSource jdbc) {
-		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
+	private SessionFactory sessionFactory;
+	
+	public Session session() {
+		return sessionFactory.getCurrentSession();
 	}
+	
 
+	
+	@SuppressWarnings("unchecked")
 	public List<Przepis> getPrzepisy(){
-		
-		return jdbc.query("select * from recipes", new RowMapper<Przepis>(){
-
-			@Override
-			public Przepis mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Przepis przepis = new Przepis();
-				
-				przepis.setId(rs.getInt("id_recipe"));
-				przepis.setName(rs.getString("name"));
-				przepis.setText(rs.getString("text"));
-				przepis.setStatus(rs.getInt("status"));
-				przepis.setUsername(rs.getString("username"));
-				
-				return przepis;
-			}
-			
-		});
+		return session().createQuery("from Przepis").list();
 	}
 	
 	public Przepis getPrzepis(int id){
 		
-		MapSqlParameterSource params = new MapSqlParameterSource();
-		params.addValue("id", id);
-		
-		return jdbc.queryForObject("select * from recipes where id_recipe=:id", params, new RowMapper<Przepis>(){
-
-			@Override
-			public Przepis mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Przepis przepis = new Przepis();
-				
-				przepis.setId(rs.getInt("id_recipe"));
-				przepis.setName(rs.getString("name"));
-				przepis.setText(rs.getString("text"));
-				przepis.setStatus(rs.getInt("status"));
-				przepis.setUsername(rs.getString("username"));
-				
-				return przepis;
-			}
-			
-		});
+		Criteria crit = session().createCriteria(Przepis.class);
+		crit.add(Restrictions.idEq(id));
+		Przepis przepis = (Przepis)crit.uniqueResult();
+		return przepis;
 	}
 	
-	public boolean update(Przepis przepis){
+	public void update(Przepis przepis){
 		
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(przepis);
-		
-		return jdbc.update("update recipes set name=:name, text=:text, status=:status, username=:username where id_recipe=:id", params) == 1;
+		session().update(przepis);
 		
 	}
 	
-	public boolean create(Przepis przepis){
-		
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(przepis);
-		
-		return jdbc.update("insert into recipes (name, text, status, username) values (:name, :text, :status, :username)", params) == 1;
+	@Transactional
+	public void create(Przepis przepis){
+		session().save(przepis);
 		
 	}
 	
-	public boolean delete(int id){
-		MapSqlParameterSource params = new MapSqlParameterSource("id", id);
+	public void delete(int id){
 		
-		return jdbc.update("delete from recipes where id_recipe=:id", params) == 1;
+		Query query = session().createQuery("delete from Przepis where id=:id");
+		query.setLong("id", id);
+		query.executeUpdate();
 	}
 
-	public List<Przepis> getPrzepisy(String username) {
-		MapSqlParameterSource params = new MapSqlParameterSource();
-		params.addValue("username", username);
-		
-		return jdbc.query("select * from recipes where username=:username", params, new RowMapper<Przepis>(){
-
-			@Override
-			public Przepis mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Przepis przepis = new Przepis();
-				
-				przepis.setId(rs.getInt("id_recipe"));
-				przepis.setName(rs.getString("name"));
-				przepis.setText(rs.getString("text"));
-				przepis.setStatus(rs.getInt("status"));
-				przepis.setUsername(rs.getString("username"));
-				
-				return przepis;
-			}
-			
-		});
+	@SuppressWarnings("unchecked")
+	public List<Przepis> getPrzepisy(String login) {
+	
+		Criteria crit = session().createCriteria(Przepis.class);
+		crit.createAlias("user", "u").add(Restrictions.eq("u.login", login));
+		return crit.list();
 	}
 		
 		

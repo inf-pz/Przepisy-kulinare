@@ -10,8 +10,8 @@
 		
 		<security:authentication-provider>
 			<security:jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select login ,password_h, active from members where login = ?"
-				authorities-by-username-query="select login, authority from authorities where login = ?" />
+				users-by-username-query="select login ,password, active from users where login = ?"
+				authorities-by-username-query="select login, authority from users where login = ?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<security:http use-expressions="true">

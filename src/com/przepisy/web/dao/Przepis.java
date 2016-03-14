@@ -1,31 +1,49 @@
 package com.przepisy.web.dao;
 
-import org.springframework.web.multipart.MultipartFile;
+import java.sql.Blob;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="przepisy")
 public class Przepis {
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String name;
 	private String text;
-	private int status;
-	private String username;
-	private MultipartFile photo;
-	
-	public MultipartFile getPhoto() {
+	public Blob getPhoto() {
 		return photo;
 	}
-	public void setPhoto(MultipartFile photo) {
+
+	public void setPhoto(Blob photo) {
 		this.photo = photo;
 	}
+	private int status;
+	
+	@Lob
+	private Blob photo;
+	
+	@ManyToOne
+	@JoinColumn(name="login")
+	private User user;
+
 	public Przepis(){
-		
+		this.user = new User();
 	}
-	public Przepis(String name, String text, int status, String username, MultipartFile photo) {
+	
+	public Przepis(String name, String text, int status, User user) {
 		this.name = name;
 		this.text = text;
 		this.status = status;
-		this.username = username;
-		this.photo = photo;
+		this.user = user;
 	}
 	
 	public int getId() {
@@ -52,16 +70,12 @@ public class Przepis {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public String getUsername() {
-		return username;
+	public User getUser() {
+		return user;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser(User user) {
+		this.user = user;
 	}
-	@Override
-	public String toString() {
-		return "Przepis [id=" + id + ", name=" + name + ", text=" + text + ", status=" + status + ", username="
-				+ username + "]";
-	}
+	
 }
 
