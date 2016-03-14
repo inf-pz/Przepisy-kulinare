@@ -32,4 +32,8 @@ public class PrzepisyService {
 	public List<Przepis> getPrzepisy(String username){
 		return przepisyDao.getPrzepisy(username);
 	}
+	
+	public Przepis getPrzepis(int id){
+		return przepisyDao.getPrzepis(id);
+	}
 }

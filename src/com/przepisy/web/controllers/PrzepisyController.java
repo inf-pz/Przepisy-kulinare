@@ -46,6 +46,14 @@ public class PrzepisyController {
 
 		return "przepisy";
 	}
+	
+	@RequestMapping(value = "/przepis", method = RequestMethod.GET)
+	public String showPrzepis(@RequestParam("id") int id, Model model) {
+		Przepis przepis = przepisyService.getPrzepis(id);
+		model.addAttribute("przepis", przepis);
+		return "przepis";
+		
+	}
 
 	@RequestMapping("/nowyprzepis")
 	public String createPrzepis(Model model) {

@@ -12,7 +12,7 @@
 <jsp:include page="/resources/static/navbar.jsp" />
 <div id="przepisGlobal">
 <c:forEach var="przepis" items="${przepisy}">
-<div id="przepis">
+<div id="przepis" onclick="location.href='${pageContext.request.contextPath}/przepis?id=${przepis.id}';" style="cursor: pointer;">
              <p>${przepis.name}</p>
              <p>Przepis:${przepis.text}</p>
              <p>Autor:${przepis.user.login}</p>

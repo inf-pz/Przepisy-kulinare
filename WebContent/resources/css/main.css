@@ -128,6 +128,23 @@ input[type="radio"] {
 	border: 2px dashed #376e32;
 	
 }
+#przepis_single{
+	display: inline-table;
+	border-style: dotted;
+	width: 100%;
+	height: 500px;
+	padding: 10px;
+	margin: 5px;
+	border-radius:2em;
+	border: 2px dashed #376e32;
+	
+}
+#tytul{
+  font-family: Arial;
+  color: black;
+  font-size: 200%;
+  text-align: center;
+}
 footer {
   position: absolute;
   right: auto;
