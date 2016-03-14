@@ -10,8 +10,8 @@
 		
 		<security:authentication-provider>
 			<security:jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select login ,password_h, active from members where login = ?"
-				authorities-by-username-query="select login, authority from authorities where login = ?" />
+				users-by-username-query="select login ,password, active from users where login = ?"
+				authorities-by-username-query="select login, authority from users where login = ?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<security:http use-expressions="true">
@@ -21,6 +21,7 @@
 		<security:intercept-url pattern="/mojeprzepisy" access="isAuthenticated()" />
 		<security:intercept-url pattern="/ustawienia" access="isAuthenticated()" />
 		<security:intercept-url pattern="/przepisdodany" access="isAuthenticated()" />
+		<security:intercept-url pattern="/nowycomment" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/rejestracja" access="permitAll" />
 		<security:intercept-url pattern="/logout" access="permitAll" />
@@ -29,6 +30,7 @@
 		<security:intercept-url pattern="/accountcreated" access="permitAll" />
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/login" access="permitAll" />
+		<security:intercept-url pattern="/przepis" access="permitAll" />
 		<security:intercept-url pattern="/przepisy" access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />
 		<security:form-login login-page="/login"

@@ -2,7 +2,6 @@ package com.przepisy.web.dao;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,7 +19,6 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name="user_login")
 	private User autor;
-	@Column(columnDefinition="DATETIME DEFAULT CURRENT_TIMESTAMP")
 	private Date datatime;
 	private String text;
 	@ManyToOne
