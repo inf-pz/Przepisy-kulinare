@@ -3,6 +3,9 @@
   <groupId>com.przepisy</groupId>
   <artifactId>przepisy</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+    <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -12,6 +15,8 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+          <encoding>UTF-8</encoding>
+           <outputEncoding>UTF-8</outputEncoding>
         </configuration>
       </plugin>
     </plugins>

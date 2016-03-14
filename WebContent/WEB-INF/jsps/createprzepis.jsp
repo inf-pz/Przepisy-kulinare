@@ -12,7 +12,7 @@
 <jsp:include page="/resources/static/navbar.jsp" />
 
 
-<sf:form method="post"  commandName="przepis" enctype="multipart/form-data" action="${pageContext.request.contextPath}/docreateprzepis">
+<sf:form method="post" accept-charset="utf-8"  commandName="przepis" enctype="multipart/form-data" action="${pageContext.request.contextPath}/docreateprzepis">
 <table>
 <tr><td>Tytuł: </td><td><sf:input path="name" id="name"/></td> </tr>
 <tr><td>Opis: </td><td><sf:textarea path="text" id="text" rows="15" cols="25"/></td> </tr>
