@@ -22,6 +22,7 @@
 <c:forEach var="comment" items="${comments}">
 <div id="comment" >
              <p>${comment.autor.login}</p>
+             <p>${comment.data}</p>
              <p>${comment.text}</p>
 
 </div>

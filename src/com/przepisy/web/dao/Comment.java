@@ -1,6 +1,7 @@
 package com.przepisy.web.dao;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="comments")
@@ -19,11 +22,12 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name="user_login")
 	private User autor;
-	private Date datatime;
 	private String text;
 	@ManyToOne
 	@JoinColumn(name="przepis_id")
 	private Przepis przepis;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date data = new Date();
 	
 	
 	public Comment(){
@@ -33,10 +37,10 @@ public class Comment {
 	
 
 	
-	public Comment(int id, User autor, Date datatime, String text, Przepis przepis) {
+	public Comment(int id, User autor, Date data, String text, Przepis przepis) {
 		this.id = id;
 		this.autor = autor;
-		this.datatime = datatime;
+		this.data = data;
 		this.text = text;
 		this.przepis = przepis;
 	}
@@ -62,12 +66,6 @@ public class Comment {
 	public void setAutor(User autor) {
 		this.autor = autor;
 	}
-	public Date getDatatime() {
-		return datatime;
-	}
-	public void setDatatime(Date datatime) {
-		this.datatime = datatime;
-	}
 	public String getText() {
 		return text;
 	}
@@ -75,5 +73,11 @@ public class Comment {
 		this.text = text;
 	}
 	
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}
 		
 }

@@ -2,6 +2,7 @@ package com.przepisy.web.controllers;
 
 import java.security.Principal;
 import java.sql.Blob;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -76,6 +77,7 @@ public class PrzepisyController {
 		Przepis przepis = przepisyService.getPrzepis(id);
 		comment.setPrzepis(przepis);
 		commentsService.createComment(comment);
+		comment.setData(new Date());
 
 		redirectAttributes.addAttribute("id", id);
 		return "redirect:/przepis";
