@@ -25,7 +25,7 @@
 </div>
 <c:forEach var="comment" items="${comments}">
 <div id="comment" >
-             <p>${comment.autor.login}</p>
+             <p><a href="${pageContext.request.contextPath}/przepisy?user=${comment.autor.login}">${comment.autor.login}</a></p>
              <p>${comment.data}</p>
              <p>${comment.text}</p>
 
