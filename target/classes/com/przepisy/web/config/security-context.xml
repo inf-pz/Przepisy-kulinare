@@ -15,6 +15,7 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<security:http use-expressions="true">
+		<security:intercept-url pattern="/favicon.ico" access="ROLE_ANONYMOUS" />
 		<security:intercept-url pattern="/nowyprzepis" access="isAuthenticated()" />
 		<security:intercept-url pattern="/docreateprzepis" access="isAuthenticated()" />
 		<security:intercept-url pattern="/ustawieniaUpdate" access="isAuthenticated()" />

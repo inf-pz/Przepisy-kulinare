@@ -11,7 +11,7 @@
 <body>
 <header>
 	<h1>
-<a class="header-logo" href="http://localhost:8080/przepisy/">Przepisy kulinarne</a>
+<a class="header-logo" href="${pageContext.request.contextPath}/">Przepisy kulinarne</a>
 	</h1>
 </header>
 <nav>
