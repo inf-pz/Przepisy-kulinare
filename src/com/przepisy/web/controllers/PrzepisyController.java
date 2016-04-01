@@ -55,13 +55,21 @@ public class PrzepisyController {
 		this.commentsService = commentsService;
 	}
 
-	@RequestMapping("/przepisy")
-	public String showPrzepisy(Model model) {
+	@RequestMapping(value = "/przepisy", method = RequestMethod.GET)
+	public String showPrzepisy(@RequestParam(value = "user", required = false) String user, Model model) {
 
-		List<Przepis> przepisy = przepisyService.getPrzepisy();
+		List<Przepis> przepisy;
+		if (user == null) {
+			przepisy = przepisyService.getPrzepisy();
+		}
+		else {
+			przepisy = przepisyService.getPrzepisy(user);
+			model.addAttribute("user", user);
+		}
 
 		model.addAttribute("przepisy", przepisy);
-
+		
+		
 		return "przepisy";
 	}
 
@@ -154,9 +162,7 @@ public class PrzepisyController {
 	@RequestMapping("/mojeprzepisy")
 	public String userPrzepisy(Model model, Principal principal) {
 		String username = principal.getName();
-		List<Przepis> przepisy = przepisyService.getPrzepisy(username);
-		model.addAttribute("przepisy", przepisy);
-		return "accountprzepisy";
+		 return "redirect:/przepisy?user=" + username;
 	}
 
 	@RequestMapping(value = "/getPhoto/{id}")

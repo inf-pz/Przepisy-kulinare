@@ -10,12 +10,14 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
+<c:if test="${not empty user}">
+    <p>Przepisy użytkownia <c:out value="user"></c:out>:<p>
+    </c:if>
 <div id="przepisGlobal">
 <c:forEach var="przepis" items="${przepisy}">
 <div id="przepis" onclick="location.href='${pageContext.request.contextPath}/przepis?id=${przepis.id}';" style="cursor: pointer;">
              <p>${przepis.name}</p>
-             <p>Przepis:${przepis.text}</p>
-             <p>Autor:${przepis.user.login}</p>
+             <p>Autor: ${przepis.user.login}</p>
 </div>
 </c:forEach>
 </div>
