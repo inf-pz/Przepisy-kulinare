@@ -1,6 +1,8 @@
 package com.przepisy.web.dao;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -73,9 +75,12 @@ public class Comment {
 		this.text = text;
 	}
 	
-	public Date getData() {
-		return data;
+	public String getData() {
+		DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		  
+		return df.format(data);
 	}
+	
 	public void setData(Date data) {
 		this.data = data;
 	}

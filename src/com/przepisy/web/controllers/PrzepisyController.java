@@ -111,6 +111,7 @@ public class PrzepisyController {
 			@RequestParam(value = "image", required = false) Blob image) {
 
 		przepis.setUser(usersService.findUser(principal.getName()));
+		przepis.setData(new Date());
 
 		if (!(image == null)) {
 			try {

@@ -1,6 +1,10 @@
 package com.przepisy.web.dao;
 
 import java.sql.Blob;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="przepisy")
@@ -24,6 +30,8 @@ public class Przepis {
 	@JoinColumn(name="login")
 	private User user;
 	private int status;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date data = new Date();
 
 	public Blob getPhoto() {
 		return photo;
@@ -75,6 +83,13 @@ public class Przepis {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+	public String getData() {
+		DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		  
+		return df.format(data);
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}	
 }
 

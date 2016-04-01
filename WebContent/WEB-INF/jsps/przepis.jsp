@@ -14,6 +14,7 @@
 <div id="przepisGlobal">
 <div id="przepis_single">
              <div id="tytul"><p>${przepis.name}</p></div>
+             <p>Dodano: ${przepis.data}</p>
              <p>Autor: ${przepis.user.login}</p>
              <p>${przepis.text}</p>
 
