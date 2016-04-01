@@ -1,18 +1,26 @@
 package com.przepisy.web.controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.security.Principal;
-import java.sql.Blob;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.przepisy.web.dao.Comment;
@@ -31,6 +39,7 @@ public class PrzepisyController {
 	private UsersService usersService;
 	private CommentsService commentsService;
 
+	
 	@Autowired
 	public void setPrzepisyService(PrzepisyService przepisyService) {
 		this.przepisyService = przepisyService;
@@ -40,7 +49,7 @@ public class PrzepisyController {
 	public void setUsersService(UsersService usersService) {
 		this.usersService = usersService;
 	}
-	
+
 	@Autowired
 	public void setCommnetsService(CommentsService commentsService) {
 		this.commentsService = commentsService;
@@ -64,6 +73,7 @@ public class PrzepisyController {
 		model.addAttribute("comment", comment);
 		List<Comment> comments = commentsService.getComments(przepis);
 		model.addAttribute("comments", comments);
+
 		return "przepis";
 
 	}
@@ -108,32 +118,37 @@ public class PrzepisyController {
 
 	@RequestMapping(value = "/docreateprzepis", headers = "content-type=multipart/*", method = RequestMethod.POST)
 	public String doCreatePrzepis(Model model, Przepis przepis, BindingResult result, Principal principal,
-			@RequestParam(value = "image", required = false) Blob image) {
-
+			@RequestParam(value = "photo", required = false) MultipartFile file) {
 		przepis.setUser(usersService.findUser(principal.getName()));
 		przepis.setData(new Date());
 
-		if (!(image == null)) {
+		if (!(file.getSize() == 0)) {
 			try {
-				validateImage(image);
+				przepis.setPhoto(file.getBytes());
 
-			} catch (RuntimeException re) {
-				result.reject(re.getMessage());
+			} catch (Exception re) {
+				logger.info(re.getMessage());
 				return "createprzepis";
 			}
 		}
-
-		if (validate(przepis) == false)
-			return "createprzepiserror";
 		else {
-			przepisyService.createPrzepis(przepis);
-			return "przepisdodany";
+			
+			try {
+				ClassPathResource cpr = new ClassPathResource("default.png");
+				InputStream is = cpr.getInputStream();
+				przepis.setPhoto(IOUtils.toByteArray(is));
+//				logger.info("czy photo jest rózne od null");
+//				logger.info(przepis.getPhoto() != null);
+			} catch (IOException re) {
+				logger.info(re.getMessage());
+				return "createprzepis";
+			}
+
 		}
-	}
 
-	private void validateImage(Blob image) {
-		// TODO Auto-generated method stub
+		przepisyService.createPrzepis(przepis);
 
+		return "przepisdodany";
 	}
 
 	@RequestMapping("/mojeprzepisy")
@@ -142,5 +157,15 @@ public class PrzepisyController {
 		List<Przepis> przepisy = przepisyService.getPrzepisy(username);
 		model.addAttribute("przepisy", przepisy);
 		return "accountprzepisy";
+	}
+
+	@RequestMapping(value = "/getPhoto/{id}")
+	public void getUserImage(HttpServletResponse response, @PathVariable("id") int id) throws IOException {
+
+		response.setContentType("image/jpeg");
+		byte[] buffer = przepisyService.getPrzepis(id).getPhoto();
+		InputStream in1 = new ByteArrayInputStream(buffer);
+		IOUtils.copy(in1, response.getOutputStream());
+		
 	}
 }

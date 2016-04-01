@@ -33,6 +33,7 @@
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/przepis" access="permitAll" />
 		<security:intercept-url pattern="/przepisy" access="permitAll" />
+		<security:intercept-url pattern="/getPhoto/*" access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true"

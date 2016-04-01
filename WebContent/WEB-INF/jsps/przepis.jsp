@@ -7,13 +7,16 @@
 <head>
 <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css" >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <title>Lista przepisow</title>
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 <div id="przepisGlobal">
 <div id="przepis_single">
-             <div id="tytul"><p>${przepis.name}</p></div>
+             <div id="tytul">
+             <p>${przepis.name}</p></div>
+			<p><img src="getPhoto/<c:out value="${przepis.id}"/>.do"></p>
              <p>Dodano: ${przepis.data}</p>
              <p>Autor: ${przepis.user.login}</p>
              <p>${przepis.text}</p>

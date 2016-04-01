@@ -7,16 +7,39 @@
 <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css" >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Dodaj przepis</title>
+<script language="JavaScript">
+
+function Validate() {
+
+	var image =document.getElementById("photo").value;
+
+	if(image!=''){
+
+		var checkimg = image.toLowerCase();
+
+		if (!checkimg.match(/(\.jpg|\.png|\.JPG|\.PNG|\.jpeg|\.JPEG)$/)){
+			alert("Dozwolone formaty to .jpg, .png, .jpeg");
+			document.getElementById("photo").focus();
+			return false;
+			}
+	}
+	return true;
+
+}
+
+</script>
 </head>
+
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 
 
-<sf:form method="post" accept-charset="utf-8"  commandName="przepis" enctype="multipart/form-data" action="${pageContext.request.contextPath}/docreateprzepis">
+<sf:form id="form" method="post" accept-charset="utf-8"  commandName="przepis" enctype="multipart/form-data" onSubmit="return Validate()" action="${pageContext.request.contextPath}/docreateprzepis">
 <table>
 <tr><td>Tytuł: </td><td><sf:input path="name" id="name"/></td> </tr>
 <tr><td>Opis: </td><td><sf:textarea path="text" id="text" rows="15" cols="25"/></td> </tr>
-<tr><td>Zdjęcie: </td><td><input name="photo" type="file"/> </td></tr>
+<tr><td>Zdjęcie: </td><td><input name="photo" id="photo" type="file"/> </td></tr>
+<tr><td><div class="error"></div></td></tr>
 <tr><td></td><td><input value="Dodaj" class="btn" type="submit"></td> </tr>
 </table>
 </sf:form>

@@ -1,10 +1,10 @@
 package com.przepisy.web.dao;
 
-import java.sql.Blob;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,7 +25,8 @@ public class Przepis {
 	private String name;
 	private String text;
 	@Lob
-	private Blob photo;
+	@Column(name="photo", columnDefinition="mediumblob")
+	private byte[] photo;
 	@ManyToOne
 	@JoinColumn(name="login")
 	private User user;
@@ -33,11 +34,11 @@ public class Przepis {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new Date();
 
-	public Blob getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(Blob photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 	
