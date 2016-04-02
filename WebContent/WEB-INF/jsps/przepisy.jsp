@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 <c:if test="${not empty user}">
-    <p>Przepisy użytkownia <c:out value="user"></c:out>:<p>
+    <p>Przepisy użytkownia <c:out value="${user}"></c:out>:<p>
     </c:if>
 <div id="przepisGlobal">
 <c:forEach var="przepis" items="${przepisy}">
