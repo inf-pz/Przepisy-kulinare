@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="przepisy")
+@Table(name = "przepisy")
 public class Przepis {
 
 	@Id
@@ -24,11 +24,12 @@ public class Przepis {
 	private int id;
 	private String name;
 	private String text;
+	private String skladniki;
 	@Lob
-	@Column(name="photo", columnDefinition="mediumblob")
+	@Column(name = "photo", columnDefinition = "mediumblob")
 	private byte[] photo;
 	@ManyToOne
-	@JoinColumn(name="login")
+	@JoinColumn(name = "login")
 	private User user;
 	private int status;
 	@Temporal(TemporalType.TIMESTAMP)
@@ -41,56 +42,73 @@ public class Przepis {
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
-	
 
-	public Przepis(){
+	public Przepis() {
 		this.user = new User();
 	}
-	
+
 	public Przepis(String name, String text, int status, User user) {
 		this.name = name;
 		this.text = text;
 		this.status = status;
 		this.user = user;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getText() {
 		return text;
 	}
+
 	public void setText(String text) {
 		this.text = text;
 	}
+
+	public String getSkladniki() {
+		return skladniki;
+	}
+
+	public void setSkladniki(String skladniki) {
+		this.skladniki = skladniki;
+	}
+
 	public int getStatus() {
 		return status;
 	}
+
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	public String getData() {
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-		  
+
 		return df.format(data);
 	}
+
 	public void setData(Date data) {
 		this.data = data;
-	}	
+	}
 }
-
