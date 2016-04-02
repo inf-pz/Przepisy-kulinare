@@ -19,6 +19,7 @@
 			<p><img src="getPhoto/<c:out value="${przepis.id}"/>.do"></p>
              <p>Dodano: ${przepis.data}</p>
              <p>Autor: <a href="${pageContext.request.contextPath}/przepisy?user=${przepis.user.login}">${przepis.user.login}</a><p>
+             <p>Czas przygotowania: ${przepis.czas} minut</p>
              <p>Składniki: ${przepis.skladniki}</p>
              <p>Opis: ${przepis.text}</p>
 

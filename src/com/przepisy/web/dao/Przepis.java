@@ -25,9 +25,11 @@ public class Przepis {
 	private String name;
 	private String text;
 	private String skladniki;
+	private int czas;
 	@Lob
 	@Column(name = "photo", columnDefinition = "mediumblob")
 	private byte[] photo;
+
 	@ManyToOne
 	@JoinColumn(name = "login")
 	private User user;
@@ -80,6 +82,14 @@ public class Przepis {
 
 	public String getSkladniki() {
 		return skladniki;
+	}
+
+	public int getCzas() {
+		return czas;
+	}
+
+	public void setCzas(int czas) {
+		this.czas = czas;
 	}
 
 	public void setSkladniki(String skladniki) {
