@@ -30,6 +30,7 @@
 		<security:intercept-url pattern="/nowekonto" access="permitAll" />
 		<security:intercept-url pattern="/accountcreated" access="permitAll" />
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
+		<security:intercept-url pattern="/szukaj" access="permitAll" />
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/przepis" access="permitAll" />
 		<security:intercept-url pattern="/przepisy" access="permitAll" />

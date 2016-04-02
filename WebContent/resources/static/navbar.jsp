@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,5 +38,9 @@
 </ul>
 </nav>
 <br>
+<form id="form" method="get" accept-charset="utf-8"  action="${pageContext.request.contextPath}/szukaj">
+<input type="text" name="query" id="query"/>
+<input value="Szukaj" class="btn" type="submit">
+</form>
 </body>
 </html>

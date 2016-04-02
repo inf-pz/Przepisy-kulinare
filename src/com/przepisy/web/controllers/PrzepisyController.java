@@ -58,6 +58,7 @@ public class PrzepisyController {
 	@RequestMapping(value = "/przepisy", method = RequestMethod.GET)
 	public String showPrzepisy(@RequestParam(value = "user", required = false) String user, Model model) {
 
+		
 		List<Przepis> przepisy;
 		if (user == null) {
 			przepisy = przepisyService.getPrzepisy();
@@ -66,6 +67,18 @@ public class PrzepisyController {
 			przepisy = przepisyService.getPrzepisy(user);
 			model.addAttribute("user", user);
 		}
+
+		model.addAttribute("przepisy", przepisy);
+		
+		
+		return "przepisy";
+	}
+	
+	@RequestMapping(value = "/szukaj", method = RequestMethod.GET)
+	public String showResults(@RequestParam(value = "query", required = true) String query, Model model) {
+
+		
+		List<Przepis> przepisy = przepisyService.searchForPrzepis(query);
 
 		model.addAttribute("przepisy", przepisy);
 		

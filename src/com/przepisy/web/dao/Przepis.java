@@ -15,15 +15,24 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+
 @Entity
+@Indexed
 @Table(name = "przepisy")
 public class Przepis {
 
 	@Id
 	@GeneratedValue
 	private int id;
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String name;
 	private String text;
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String skladniki;
 	private int czas;
 	@Lob

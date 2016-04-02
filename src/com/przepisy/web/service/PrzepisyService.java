@@ -45,4 +45,13 @@ public class PrzepisyService {
 	public void savePrzepis(Przepis przepis){
 		przepisyDao.update(przepis);
 	}
+	
+	public void indexBooks() {
+		przepisyDao.indexPrzepisy();
+
+	}
+	
+	public List<Przepis> searchForPrzepis(String searchText){
+		return przepisyDao.searchForPrzepis(searchText);
+	}
 }
