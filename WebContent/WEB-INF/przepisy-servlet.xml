@@ -23,4 +23,8 @@
 		<property name="maxUploadSize" value="10000000" />
 	</bean>
 	
+	
+	<bean id="loginListener"
+		class="com.przepisy.web.service.LoginListener">
+	</bean>
 </beans>

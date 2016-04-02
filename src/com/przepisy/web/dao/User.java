@@ -1,8 +1,14 @@
 package com.przepisy.web.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -26,6 +32,12 @@ public class User {
 	
 	@Email(message="Adres e-mail nie jest poprawny")
 	private String email;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date data_rejestracji = new Date();
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date last_active = new Date();
 	
 	private boolean active;
 	private String authority;
@@ -71,6 +83,21 @@ public class User {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	
-	
+	public String getDataRejestracji() {
+		DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		  
+		return df.format(data_rejestracji);
+	}
+	public void setDataRejestracji(Date data_rejestracji) {
+		this.data_rejestracji = data_rejestracji;
+	}	
+	public void setLastActive(Date last_active) {
+		this.last_active = last_active;
+	}	
+	public String getLastActvie() {
+		DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		  
+		return df.format(last_active);
+	}
+
 }

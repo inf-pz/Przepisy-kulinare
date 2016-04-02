@@ -1,6 +1,7 @@
 package com.przepisy.web.controllers;
 
 import java.security.Principal;
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -84,6 +85,7 @@ public class LoginController {
 		
 		user.setActive(true);
 		user.setAuthority("user");
+		user.setDataRejestracji(new Date());
 		
 		if(usersService.exist(user.getLogin())){
 			result.rejectValue("login", "DuplicateKey.user.login", "Podany login jest już zajęty");
