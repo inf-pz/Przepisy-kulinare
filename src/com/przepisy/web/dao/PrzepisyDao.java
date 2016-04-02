@@ -49,7 +49,7 @@ public class PrzepisyDao {
 	        .createQuery();
 
 	      org.hibernate.Query hibQuery =
-	         fullTextSession.createFullTextQuery(query, Przepis.class);
+	         fullTextSession.createFullTextQuery(query, Przepis.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 
 	      List<Przepis> results = hibQuery.list();
 	      return results;
