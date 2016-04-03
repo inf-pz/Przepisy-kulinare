@@ -13,6 +13,9 @@
 <header>
 	<h1>
 <a class="header-logo" href="${pageContext.request.contextPath}/">Przepisy kulinarne</a>
+	<form id="form" method="get" accept-charset="utf-8"  action="${pageContext.request.contextPath}/szukaj">
+<input type="search" style="float: right; margin-top: -10.0%; margin-right: 8%" placeholder="Szukaj" name="query" id="query"/>
+</form>
 	</h1>
 </header>
 <nav>
@@ -38,9 +41,5 @@
 </ul>
 </nav>
 <br>
-<form id="form" method="get" accept-charset="utf-8"  action="${pageContext.request.contextPath}/szukaj">
-<input type="text" name="query" id="query"/>
-<input value="Szukaj" class="btn" type="submit">
-</form>
 </body>
 </html>

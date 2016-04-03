@@ -116,7 +116,6 @@ input[type="radio"] {
 }
 #przepisGlobal{
 	margin: 0 auto;
-	margin-left: 20px;
 }
 #newcomment{
 	margin-left: 10%;
@@ -135,15 +134,20 @@ input[type="radio"] {
 }
 #comment{
 	display: inline-table;
-	margin-left: 20%;
 	algin: center;
 	border-style: dotted;
-	width: 60%;
-	height: 200px;
-
+	width: 100%;
+	height: 100px;
 	border-radius:2em;
 	border: 2px dashed #376e32;
+	margin-bottom: 10px;
 	
+}
+
+#comm_text{
+	margin-left: 5%;
+	word-wrap:break-word;
+	max-width:100%;
 }
 #przepis_single{
 	display: inline-table;
@@ -158,9 +162,27 @@ input[type="radio"] {
 }
 #tytul{
   font-family: Arial;
-  color: black;
-  font-size: 200%;
-  text-align: center;
+}
+#tylKolor{
+	font-size: 160%;
+	color: #77a375;
+}
+
+#tylKolor2{
+	font-size: 140%;
+	color: #5f835d;
+	font-style: italic;
+	margin-bottom: 0;
+}
+
+
+#czasP{
+	margin-top: -20px;
+}
+
+hr {
+  width: 100%;
+  border: 1px dashed #ddefdc;
 }
 footer {
   position: absolute;
@@ -197,4 +219,39 @@ background:url(http://i.imgur.com/v1QRRBY.png) no-repeat;
 text-indent: 100%;
 white-space: nowrap;
 overflow: hidden;
+}
+
+#pp{
+	margin-left: 3%;
+}
+
+#przepis-photo-skladniki {
+    position: relative;	
+}
+
+#przepis-left {
+    float: left;
+}
+#przepis-right {
+    float: right;
+    white-space:pre;
+    margin-right: 16%;
+    font-size: 110%;
+}
+#inne{
+	clear: both;
+}
+.obrazekprz{
+	max-width: 300px;
+	float: left;
+	margin-bottom: 2%;
+	border: 2px solid #ddefdc;
+	border-radius:2em;
+}
+#sposob{
+	white-space:pre;
+	font-size: 100%;
+	word-wrap:break-word;
+	width: 100%;
+	max-width:100%;
 }

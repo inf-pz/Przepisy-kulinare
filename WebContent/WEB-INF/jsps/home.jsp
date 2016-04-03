@@ -10,9 +10,9 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
-</br>
-Witamy serdecznie na stronie dla miłośników wspaniałych przepisów!
-
+<div id="pp">
+<p>Witamy serdecznie na stronie dla miłośników wspaniałych przepisów!</p>
+</div>
 <jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>
