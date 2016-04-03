@@ -15,34 +15,55 @@
 <div id="przepisGlobal">
 <div id="przepis_single">
              <div id="tytul">
-             <p>${przepis.name}</p></div>
-			<p><img src="getPhoto/<c:out value="${przepis.id}"/>.do"></p>
-             <p>Dodano: ${przepis.data}</p>
-             <p>Autor: <a href="${pageContext.request.contextPath}/przepisy?user=${przepis.user.login}">${przepis.user.login}</a><p>
-             <p>Czas przygotowania: ${przepis.czas} minut</p>
-             <p>Składniki: ${przepis.skladniki}</p>
-             <p>Opis: ${przepis.text}</p>
-
-</div>
-</div>
-<c:forEach var="comment" items="${comments}">
-<div id="comment" >
-             <p><a href="${pageContext.request.contextPath}/przepisy?user=${comment.autor.login}">${comment.autor.login}</a></p>
-             <p>${comment.data}</p>
+             <div id="tylKolor"><p>${przepis.name}</p></div>
+             <div id="czasP"><p><img style="margin-bottom:-8px;"src="http://www.przepisownia.pl/sites/all/themes/frontend/thermomix/images/icons/icon_time.png" alt="Czas przygotowania" height="30" width="30">Czas przygotowania: ${przepis.czas} min.</p></div>
+             </div>
+             <div class="hr"><hr /></div>
+             <div id="przepis-photo-skladniki">
+			<div id="przepis-left"><img class="obrazekprz" src="getPhoto/<c:out value="${przepis.id}"/>.do"></div>
+			<div id="przepis-right"><div id="tylKolor2"><p>Składniki:</p></div> ${przepis.skladniki}</div>
+			</div>
+			 <div id="inne"><div class="hr"><hr /></div></div>
+			 <div id="tylKolor2"><p>Sposób przygotowania:</p> </div>
+			  <div id="sposob"><p>${przepis.text}</p></div>
+			  <div class="hr"><hr /></div>
+			 <p><img style="margin-bottom:-8px;"src="https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-46-32.png" alt="Autor" height="32" width="32"> Autor: <a href="${pageContext.request.contextPath}/przepisy?user=${przepis.user.login}">${przepis.user.login}</a><p>
+			 <p><img style="margin-bottom:-8px;"src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/Date-32.png" alt="Data" height="32" width="32"> Dodano: ${przepis.data}</p>
+             <div class="hr"><hr /></div>
+             <p><img style="margin-bottom:-10px;"src="https://cdn1.iconfinder.com/data/icons/user-ui-vol-1-3/25/user_ui_notify_error_reject_interface-32.png" alt="Zgloszenie" height="32" width="32"> <a href="${pageContext.request.contextPath}/przepisy?user=${przepis.user.login}">zgłoś nadużycie</a></p>
+             </br>
+             <sec:authorize access="hasRole('admin')">
+             <div class="hr"><hr /></div>
+             <p> Panel moderatora: <a class="btn" href="${pageContext.request.contextPath}/admin/przepis/delete?id=${przepis.id}" >Edytuj</a><a class="btn" href="${pageContext.request.contextPath}/admin/przepis/delete?id=${przepis.id}" >Usuń</a> </p>
+             </sec:authorize>  
+             <div class="hr"><hr /></div>
+			<div id="tylKolor"><p>Komentarze:</p></div>
+			<c:forEach var="comment" items="${comments}">
+			<div id="comment" >
+			<div id="comm_text">
+             <p>
+             <a href="${pageContext.request.contextPath}/przepisy?user=${comment.autor.login}">${comment.autor.login}</a> (${comment.data})
+             <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}"> <img style="margin-bottom:-2px;" src="https://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/16x16/Flag2_Green.png" /></a>
+             <sec:authorize access="hasRole('admin')"> 
+             <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}"> <img style="margin-bottom:-2px;" src="https://cdn0.iconfinder.com/data/icons/form-elements-kit/100/cross-green-rounded-01-16.png" /></a> 
+             </sec:authorize>
+             </p>
+             <p></p>
              <p>${comment.text}</p>
-
+</div>
 </div>
 </c:forEach>
 <div id="newcomment">
 <form:form id="commentForm" method="post" action="${pageContext.request.contextPath}/nowycomment" commandName="comment">
 <table>
-<tr><td></td><td><form:textarea path="text" rows="10" cols="60" type="text"/> <br/><div class="error"><form:errors path="text"></form:errors></div> </td> </tr>
+<tr><td></td><td><form:textarea placeholder="Twoja opinia :-)" path="text" rows="5" cols="70" type="text"/> <br/><div class="error"><form:errors path="text"></form:errors></div> </td> </tr>
 <form:input value="${przepis.id}" path="id" type="hidden"></form:input>
-<tr><td></td><td><input value="Dodaj komentarz" type="submit"/><br/> </td> </tr>
+<tr><td></td><td><input class="btn" value="Dodaj komentarz" type="submit"/><br/> </td> </tr>
 </table>
 </form:form>
 </div>
-
+</div>
+</div>
 <jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>
