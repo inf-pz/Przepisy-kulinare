@@ -43,6 +43,7 @@
             <tr>
                 <th>Tytul</th>
                 <th>Dodano</th>
+                <th>Edycja</th>
                 <th>Usuń</th>
             </tr>
             </thead>
@@ -52,6 +53,7 @@
 <tr>
              <td><a href="${pageContext.request.contextPath}/przepis?id=${przepis.id}">${przepis.name}</a></td>
              <td>${przepis.data}</td>
+             <td><a href="${pageContext.request.contextPath}/admin/przepis/edit?id=${przepis.id}">Edycja</a></td>
              <td><a onclick="return confirm('Czy jesteś pewny że chcesz usunąć ten przepis?')" href="${pageContext.request.contextPath}/admin/przepis/delete?id=${przepis.id}">Usuń</a></td>
    </tr>
 </c:forEach>
@@ -64,6 +66,7 @@
             <tr>
                 <th>Treść</th>
                 <th>Dodano</th>
+                <th>Edycja</th>
                 <th>Usuń</th>
             </tr>
             </thead>
@@ -73,6 +76,7 @@
 <tr>
              <td><a href="${pageContext.request.contextPath}/przepis?id=${comment.przepis.id}">${comment.text}</a></td>
              <td>${comment.data}</td>
+             <td><a href="${pageContext.request.contextPath}/admin/comment/edit?id=${comment.id}">Edycja</a></td>
              <td><a onclick="return confirm('Czy jesteś pewny że chcesz usunąć ten komentarz?')" href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}&adminpanel=true">Usuń</a></td>
    </tr>
 </c:forEach>

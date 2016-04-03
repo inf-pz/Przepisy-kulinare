@@ -149,11 +149,17 @@ public class AdminController {
 	@RequestMapping(value = "/admin/przepis/edited", method = RequestMethod.POST)
 	public String updatePrzepis(RedirectAttributes redirectAttributes, Przepis przepis) {
 
-		przepisyService.savePrzepis(przepis);
+		
 		int przepisid = przepis.getId();
-
+		Przepis przepisOld = przepisyService.getPrzepis(przepis.getId());
+		przepisOld.setName(przepis.getName());
+		przepisOld.setSkladniki(przepis.getSkladniki());
+		przepisOld.setText(przepis.getText());
+		przepisOld.setCzas(przepis.getCzas());
+		
+		przepisyService.savePrzepis(przepisOld);
+		
 		redirectAttributes.addAttribute("id", przepisid);
 		return "redirect:/przepis";
 	}
-
 }
