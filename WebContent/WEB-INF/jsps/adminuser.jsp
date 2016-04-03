@@ -73,7 +73,7 @@
 <tr>
              <td><a href="${pageContext.request.contextPath}/przepis?id=${comment.przepis.id}">${comment.text}</a></td>
              <td>${comment.data}</td>
-             <td><a onclick="return confirm('Czy jesteś pewny że chcesz usunąć ten komentarz?')" href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}">Usuń</a></td>
+             <td><a onclick="return confirm('Czy jesteś pewny że chcesz usunąć ten komentarz?')" href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}&adminpanel=true">Usuń</a></td>
    </tr>
 </c:forEach>
 </tbody>

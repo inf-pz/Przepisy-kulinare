@@ -9,7 +9,8 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
-Konto zostało utworzone.
+<p>Konto zostało utworzone.</p>
+<a class="btn" href="${pageContext.request.contextPath}/login">Zaloguj się</a>
 <jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

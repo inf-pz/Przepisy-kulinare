@@ -31,8 +31,10 @@ public class Przepis {
 	private int id;
 	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private String name;
+	@Column(columnDefinition="TEXT")
 	private String text;
 	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
+	@Column(columnDefinition="TEXT")
 	private String skladniki;
 	private int czas;
 	@Lob

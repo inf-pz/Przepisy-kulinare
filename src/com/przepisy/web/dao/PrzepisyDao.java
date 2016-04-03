@@ -3,7 +3,6 @@ package com.przepisy.web.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -21,38 +20,35 @@ public class PrzepisyDao {
 	@Autowired
 	public SessionFactory sessionFactory;
 
-
 	public Session session() {
 		return sessionFactory.getCurrentSession();
 	}
 
-	
-	public void indexPrzepisy(){
-			FullTextSession fullTextSession = Search.getFullTextSession(session());
-			try {
-				fullTextSession.createIndexer().startAndWait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	public void indexPrzepisy() {
+		FullTextSession fullTextSession = Search.getFullTextSession(session());
+		try {
+			fullTextSession.createIndexer().startAndWait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<Przepis> searchForPrzepis(String searchText) {
-	      FullTextSession fullTextSession = Search.getFullTextSession(session());
+		FullTextSession fullTextSession = Search.getFullTextSession(session());
 
-	      QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(Przepis.class).get();
-	      org.apache.lucene.search.Query query = qb
-	        .keyword().onFields("name", "skladniki")
-	        .matching(searchText)
-	        .createQuery();
+		QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(Przepis.class).get();
+		org.apache.lucene.search.Query query = qb.keyword().onFields("name", "skladniki").matching(searchText)
+				.createQuery();
 
-	      org.hibernate.Query hibQuery =
-	         fullTextSession.createFullTextQuery(query, Przepis.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Przepis.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 
-	      List<Przepis> results = hibQuery.list();
-	      return results;
-	  
+		List<Przepis> results = hibQuery.list();
+		return results;
+
 	}
 
 	@SuppressWarnings("unchecked")

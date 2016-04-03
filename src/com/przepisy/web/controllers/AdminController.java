@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.przepisy.web.dao.Comment;
 import com.przepisy.web.dao.Przepis;
@@ -77,23 +78,73 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/admin/przepis/delete", method = RequestMethod.GET)
-	public String deletePrzepis(@RequestParam(value = "id", required = true) int id) {
+	public String deletePrzepis(@RequestParam(value = "id", required = true) int id, RedirectAttributes redirectAttributes) {
 		Przepis przepis = przepisyService.getPrzepis(id);
 		String autor = przepis.getUser().getLogin();
 		commentsService.deleteComments(przepis);
 		przepisyService.deletePrzepis(przepis);
 		
-		return "redirect:/admin/user?login=" + autor;
+		redirectAttributes.addAttribute("login", autor);
+		return "redirect:/admin/user";
 	}
 	
 	@RequestMapping(value = "/admin/comment/delete", method = RequestMethod.GET)
-	public String deleteComment(@RequestParam(value = "id", required = true) int id) {
+	public String deleteComment(@RequestParam(value = "id", required = true) int id, RedirectAttributes redirectAttributes, @RequestParam(value = "adminpanel", required = false) Boolean adminPanel) {
 
 		Comment comment = commentsService.getComment(id);
 		String autor = comment.getAutor().getLogin();
+		int przepisid = comment.getPrzepis().getId();
 		commentsService.deleteComment(comment);
 
-		
-		return "redirect:/admin/user?login=" + autor;
+
+		if (adminPanel != null) {
+			redirectAttributes.addAttribute("login", autor);
+			return "redirect:/admin/user";
+		}
+		else {
+			redirectAttributes.addAttribute("id", przepisid);
+			return "redirect:/przepis";
+		}
 	}
+	
+	@RequestMapping(value = "/admin/comment/edit", method = RequestMethod.GET)
+	public String editComment(@RequestParam(value = "id", required = true) int id, Model model) {
+
+		Comment comment = commentsService.getComment(id);
+		model.addAttribute("commment", comment);
+		
+		return "admineditcomment";
+	}
+	
+	@RequestMapping(value = "/admin/comment/edited", method = RequestMethod.POST)
+	public String updateComment(RedirectAttributes redirectAttributes, Comment comment) {
+
+		commentsService.saveComment(comment);
+		int przepisid = comment.getPrzepis().getId();
+		
+		
+		redirectAttributes.addAttribute("id", przepisid);
+		return "redirect:/przepis";
+	}
+	
+	@RequestMapping(value = "/admin/przepis/edit", method = RequestMethod.GET)
+	public String editPrzepis(@RequestParam(value = "id", required = true) int id, Model model) {
+
+		Przepis przepis = przepisyService.getPrzepis(id);
+		model.addAttribute("przepis", przepis);
+		
+		return "admineditprzepis";
+	}
+	@RequestMapping(value = "/admin/przepis/edited", method = RequestMethod.POST)
+	
+	public String updatePrzepis(RedirectAttributes redirectAttributes, Przepis przepis) {
+
+		przepisyService.savePrzepis(przepis);
+		int przepisid = przepis.getId();
+		
+		
+		redirectAttributes.addAttribute("id", przepisid);
+		return "redirect:/przepis";
+	}
+	
 }

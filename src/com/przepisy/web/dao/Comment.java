@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,6 +25,7 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name="user_login")
 	private User autor;
+	@Column(columnDefinition="TEXT")
 	private String text;
 	@ManyToOne
 	@JoinColumn(name="przepis_id")
