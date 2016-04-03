@@ -10,6 +10,8 @@
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 </body>
-Ustawienia zostały zaktualizowane.
+<div id="pp">
+<p>Ustawienia zostały zaktualizowane.</p>
+</div>
 <jsp:include page="/resources/static/footer.jsp" />
 </html>

@@ -11,15 +11,15 @@
 </head>
 <body onload='document.f.j_username.focus();'>
 	<jsp:include page="/resources/static/navbar.jsp" />
-	<h3>Zaloguj się</h3>
+	<div id="pp"><h3>Zaloguj się</h3></div>
 	
 	<c:if test="${param.error != null}">
-	
+	<div id="pp">
 	<p>Błędny login lub hasło.</p>
-	
+	</div>
 	
 	</c:if>
-	
+	<div id="pp">
 	<form name='f' action='${pageContext.request.contextPath}/j_spring_security_check' method='POST'>
 		<table>
 			<tr>
@@ -36,6 +36,7 @@
 			</tr>
 		<tr><td></td> </tr><tr><td></td> </tr><tr><td></td> </tr>
 	<tr><td></td><td><a class="btn" href="<c:url value="/rejestracja"/> ">Zarejestruj się</a><br/> </td> </tr>
+		</div>
 	<jsp:include page="/resources/static/footer.jsp" />
 			</table>
 	</form>

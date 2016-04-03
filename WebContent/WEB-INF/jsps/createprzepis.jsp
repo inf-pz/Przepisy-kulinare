@@ -33,19 +33,19 @@ function Validate() {
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 
-
+<div id="pp">
 <sf:form id="form" method="post" accept-charset="utf-8"  commandName="przepis" enctype="multipart/form-data" onSubmit="return Validate()" action="${pageContext.request.contextPath}/docreateprzepis">
 <table>
 <tr><td>Tytuł: </td><td><sf:input path="name" id="name"/></td> </tr>
-<tr><td>Składniki: </td><td><sf:textarea path="skladniki" id="skladniki" placeholder="składniki oddzielaj enterami" rows="15" cols="25"/></td> </tr>
-<tr><td>Opis: </td><td><sf:textarea path="text" id="text" rows="15" cols="25"/></td> </tr>
+<tr><td>Składniki: </td><td><sf:textarea path="skladniki" id="skladniki" placeholder="składniki oddzielaj enterami" rows="15" cols="50"/></td> </tr>
+<tr><td>Opis: </td><td><sf:textarea path="text" id="text" rows="15" cols="50"/></td> </tr>
 <tr><td>Czas przygotowania: </td><td><sf:input path="czas" placeholder="w minutach" value="" id="czas"/> minut</td> </tr>
 <tr><td>Zdjęcie: </td><td><input name="photo" id="photo" type="file"/> </td></tr>
 <tr><td><div class="error"></div></td></tr>
 <tr><td></td><td><input value="Dodaj" class="btn" type="submit"></td> </tr>
 </table>
 </sf:form>
-
+</div>
 
 <jsp:include page="/resources/static/footer.jsp" />
 </body>

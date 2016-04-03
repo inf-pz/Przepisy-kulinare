@@ -10,9 +10,9 @@
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 
-
+<div id="pp">
 <p>Pola treść oraz tytuł nie mogą pozostać puste</p>
-
+</div>
 <jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

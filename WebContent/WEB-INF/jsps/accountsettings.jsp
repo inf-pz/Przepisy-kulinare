@@ -53,6 +53,7 @@ $(document).ready(onLoad);
 <jsp:include page="/resources/static/navbar.jsp" />
 
 <br>
+<div id="pp">
 <form id="userForm" method="post" action="${pageContext.request.contextPath}/ustawieniaUpdate">
 <table>
 <tr><td>Obecne hasło: </td><td><input id="password_old" name="password_old" type="password"/> <br/><div class="error"><c:out value="${error}"/> </div> </td> </tr>
@@ -62,6 +63,7 @@ $(document).ready(onLoad);
 <tr><td></td><td><input value="Zapisz" class="btn" type="submit"/><br/> </td> </tr>
 </table>
 </form>
+</div>
 <jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>

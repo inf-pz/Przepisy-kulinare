@@ -11,13 +11,17 @@
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
 <c:if test="${not empty user}">
+<div id="pp">
     <p>Przepisy użytkownia <c:out value="${user}"></c:out>:<p>
+    </div>
     </c:if>
 <div id="przepisGlobal">
 <c:forEach var="przepis" items="${przepisy}">
 <div id="przepis" onclick="location.href='${pageContext.request.contextPath}/przepis?id=${przepis.id}';" style="cursor: pointer;">
-             <p>${przepis.name}</p>
-             <p>Autor: ${przepis.user.login}</p>
+             <div id="tylKolor3"><p>${przepis.name}</p></div>
+			<div id="obraz_maly"><img class="obrazekmaly" src="getPhoto/<c:out value="${przepis.id}"/>.do"></div>
+ 			<p style="">Autor: ${przepis.user.login}</p>
+            
 </div>
 </c:forEach>
 </div>

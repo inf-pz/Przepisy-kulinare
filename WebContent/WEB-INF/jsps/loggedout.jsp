@@ -9,7 +9,9 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
+<div id="pp">
 Zostałeś wylogowany.
+</div>
 <jsp:include page="/resources/static/footer.jsp" />
 </body>
 </html>
