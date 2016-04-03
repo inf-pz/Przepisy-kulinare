@@ -2,6 +2,8 @@ package com.przepisy.web.dao;
 
 
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -47,5 +49,15 @@ public class UsersDao {
 		crit.add(Restrictions.eq("login", login));
 		User user = (User)crit.uniqueResult();
 		return user != null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<User> getUsers() {
+		Criteria crit = session().createCriteria(User.class);
+		return crit.list();
+	}
+	
+	public void delete(User user){
+		session().delete(user);
 	}
 }

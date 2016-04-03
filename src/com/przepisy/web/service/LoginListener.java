@@ -27,7 +27,7 @@ public class LoginListener implements ApplicationListener<InteractiveAuthenticat
 		UserDetails userDetails = (UserDetails) event.getAuthentication().getPrincipal();
 		String username = userDetails.getUsername();
 		User user = usersDao.find(username);
-		user.setLastActive(new Date());
+		user.setLast_active(new Date());
 		usersDao.update(user);
 	}
 

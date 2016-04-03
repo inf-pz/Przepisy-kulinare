@@ -39,7 +39,23 @@ public class CommentsService {
 		return commentDao.getComments(user);
 	}
 	
-	public void savePrzepis(Comment comment){
+	public void saveComment(Comment comment){
 		commentDao.update(comment);
+	}
+	public void deleteComment(Comment comment){
+		commentDao.delete(comment);
+	}
+	
+	public void deleteComments(User user){
+		List<Comment> comments = getComments(user);
+		for (Comment comment: comments) {
+			deleteComment(comment);
+		}
+	}
+	public void deleteComments(Przepis przepis){
+		List<Comment> comments = getComments(przepis);
+		for (Comment comment: comments) {
+			deleteComment(comment);
+		}
 	}
 }

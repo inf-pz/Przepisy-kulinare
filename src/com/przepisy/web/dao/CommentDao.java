@@ -3,7 +3,6 @@ package com.przepisy.web.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -44,11 +43,9 @@ public class CommentDao {
 		
 	}
 	
-	public void delete(int id){
+	public void delete(Comment comment){
 		
-		Query query = session().createQuery("delete from Comment where id=:id");
-		query.setLong("id", id);
-		query.executeUpdate();
+		session().delete(comment);
 	}
 
 	
@@ -62,7 +59,7 @@ public class CommentDao {
 	@SuppressWarnings("unchecked")
 	public List<Comment>getComments(User user){
 		Criteria crit = session().createCriteria(Comment.class);
-		crit.createAlias("user", "u").add(Restrictions.eq("u.login", user.getLogin()));
+		crit.createAlias("autor", "a").add(Restrictions.eq("autor.login", user.getLogin()));
 		return crit.list();
 	}
 	

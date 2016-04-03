@@ -83,18 +83,18 @@ public class User {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	public String getDataRejestracji() {
+	public String getData_rejestracji() {
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		  
 		return df.format(data_rejestracji);
 	}
-	public void setDataRejestracji(Date data_rejestracji) {
+	public void setData_rejestracji(Date data_rejestracji) {
 		this.data_rejestracji = data_rejestracji;
 	}	
-	public void setLastActive(Date last_active) {
+	public void setLast_active(Date last_active) {
 		this.last_active = last_active;
 	}	
-	public String getLastActvie() {
+	public String getLast_active() {
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		  
 		return df.format(last_active);

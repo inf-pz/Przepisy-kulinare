@@ -33,8 +33,21 @@
 <li><a href="${pageContext.request.contextPath}/login">Zaloguj</a></li>
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
-<li><a href="<c:url value='/j_spring_security_logout'/> "> Wyloguj</a></li>
+<li><a href="<c:url value='/j_spring_security_logout'/> ">Wyloguj</a></li>
 </sec:authorize>
+
+<sec:authorize access="hasRole('admin')">
+<div class="dropdown">
+  <span>Admin</span>
+  <div class="dropdown-content">
+<a href="${pageContext.request.contextPath}/admin/users">Użytkownicy</a>
+  </div>
+</div>
+</sec:authorize>
+
+
+
+
 </ul>
 </nav>
 <br>

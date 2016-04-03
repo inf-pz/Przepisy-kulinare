@@ -45,6 +45,9 @@ public class PrzepisyService {
 	public void savePrzepis(Przepis przepis){
 		przepisyDao.update(przepis);
 	}
+	public void deletePrzepis(Przepis przepis){
+		przepisyDao.delete(przepis);
+	}
 	
 	public void indexBooks() {
 		przepisyDao.indexPrzepisy();

@@ -1,6 +1,5 @@
 package com.przepisy.web.dao;
 
-import java.awt.print.Book;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -81,11 +80,8 @@ public class PrzepisyDao {
 
 	}
 
-	public void delete(int id) {
-
-		Query query = session().createQuery("delete from Przepis where id=:id");
-		query.setLong("id", id);
-		query.executeUpdate();
+	public void delete(Przepis przepis) {
+		session().delete(przepis);
 	}
 
 	@SuppressWarnings("unchecked")
