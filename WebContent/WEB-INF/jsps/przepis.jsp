@@ -35,7 +35,7 @@
              </br>
              <sec:authorize access="hasRole('admin')">
              <div class="hr"><hr /></div>
-             <p> Panel moderatora: <a class="btn" href="${pageContext.request.contextPath}/admin/przepis/delete?id=${przepis.id}" >Edytuj</a><a class="btn" href="${pageContext.request.contextPath}/admin/przepis/delete?id=${przepis.id}" >Usuń</a> </p>
+             <p> Panel moderatora: <a class="btn" href="${pageContext.request.contextPath}/admin/przepis/edit?id=${przepis.id}" >Edytuj</a><a class="btn" href="${pageContext.request.contextPath}/admin/przepis/delete?id=${przepis.id}" >Usuń</a> </p>
              </sec:authorize>  
              <div class="hr"><hr /></div>
 			<div id="tylKolor"><p>Komentarze:</p></div>

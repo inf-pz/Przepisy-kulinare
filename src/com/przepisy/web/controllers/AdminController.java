@@ -120,7 +120,7 @@ public class AdminController {
 	public String editComment(@RequestParam(value = "id", required = true) int id, Model model) {
 
 		Comment comment = commentsService.getComment(id);
-		model.addAttribute("commment", comment);
+		model.addAttribute("comment", comment);
 
 		return "admineditcomment";
 	}
@@ -128,8 +128,10 @@ public class AdminController {
 	@RequestMapping(value = "/admin/comment/edited", method = RequestMethod.POST)
 	public String updateComment(RedirectAttributes redirectAttributes, Comment comment) {
 
-		commentsService.saveComment(comment);
-		int przepisid = comment.getPrzepis().getId();
+		Comment oldComment = commentsService.getComment(comment.getId());
+		oldComment.setText(comment.getText());
+		commentsService.saveComment(oldComment);
+		int przepisid = oldComment.getPrzepis().getId();
 
 		redirectAttributes.addAttribute("id", przepisid);
 		return "redirect:/przepis";
@@ -145,7 +147,6 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/admin/przepis/edited", method = RequestMethod.POST)
-
 	public String updatePrzepis(RedirectAttributes redirectAttributes, Przepis przepis) {
 
 		przepisyService.savePrzepis(przepis);
