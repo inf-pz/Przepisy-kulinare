@@ -46,7 +46,8 @@
              <a href="${pageContext.request.contextPath}/przepisy?user=${comment.autor.login}">${comment.autor.login}</a> (${comment.data})
              <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}"> <img style="margin-bottom:-2px;" src="https://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/16x16/Flag2_Green.png" /></a>
              <sec:authorize access="hasRole('admin')"> 
-             <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}"> <img style="margin-bottom:-2px;" src="https://cdn0.iconfinder.com/data/icons/form-elements-kit/100/cross-green-rounded-01-16.png" /></a> 
+             <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}"> <img style="margin-bottom:-1px;" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/write-circle-green-16.png" /></a> 
+             <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}"> <img style="margin-bottom:-1px;" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/close-circle-red-16.png" /></a> 
              </sec:authorize>
              </p>
              <p></p>
