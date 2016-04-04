@@ -77,8 +77,10 @@ public class PrzepisyController {
 	@RequestMapping(value = "/szukaj", method = RequestMethod.GET)
 	public String showResults(@RequestParam(value = "query", required = true) String query, Model model) {
 
-		
 		List<Przepis> przepisy = przepisyService.searchForPrzepis(query);
+		if (przepisy.isEmpty()){
+			model.addAttribute("msg", query + " - brak wyników");
+		}
 
 		model.addAttribute("przepisy", przepisy);
 		

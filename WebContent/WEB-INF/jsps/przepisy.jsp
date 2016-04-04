@@ -15,6 +15,11 @@
     <p>Przepisy użytkownia <c:out value="${user}"></c:out>:<p>
     </div>
     </c:if>
+<c:if test="${not empty msg}">
+<div id="pp">
+    <p>${msg}<p>
+    </div>
+</c:if>
 <div id="przepisGlobal">
 <c:forEach var="przepis" items="${przepisy}">
 <div id="przepis" onclick="location.href='${pageContext.request.contextPath}/przepis?id=${przepis.id}';" style="cursor: pointer;">
