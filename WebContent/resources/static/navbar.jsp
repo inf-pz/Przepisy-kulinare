@@ -45,7 +45,7 @@
   <div class="dropdown-content">
 <a href="${pageContext.request.contextPath}/admin/users">Użytkownicy</a>
 <a href="${pageContext.request.contextPath}/admin/comments">Komentarze</a>
-<a href="${pageContext.request.contextPath}/admin/reports">Przepisy</a>
+<a href="${pageContext.request.contextPath}/admin/reports">Zgłoszenia</a>
   </div>
 </div>
 </sec:authorize>

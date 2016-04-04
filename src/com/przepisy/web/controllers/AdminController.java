@@ -80,6 +80,7 @@ public class AdminController {
 	public String showDeleteUser(@RequestParam(value = "user", required = true) String username) {
 
 		User user = usersService.findUser(username);
+		reportsService.deleteReports(user);
 		List<Comment> comments = commentsService.getComments(user);
 		for (Comment comment : comments) {
 			commentsService.deleteComment(comment);

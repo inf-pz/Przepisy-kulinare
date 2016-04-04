@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.przepisy.web.dao.Przepis;
 import com.przepisy.web.dao.Report;
 import com.przepisy.web.dao.ReportsDao;
+import com.przepisy.web.dao.User;
 
 @Service("reportsService")
 public class ReportsService {
@@ -38,8 +39,17 @@ public class ReportsService {
 	public List<Report> getReports(Przepis przepis){
 		return reportDao.getReports(przepis);
 	}
+	public List<Report> getReports(User user){
+		return reportDao.getReports(user);
+	}
 	public void deleteReports(Przepis przepis){
 		List<Report> reports = getReports(przepis);
+		for (Report report: reports) {
+			deleteReport(report);
+		}
+	}
+	public void deleteReports(User user){
+		List<Report> reports = getReports(user);
 		for (Report report: reports) {
 			deleteReport(report);
 		}

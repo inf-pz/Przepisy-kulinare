@@ -42,10 +42,17 @@ public class ReportsDao {
 		Criteria crit = session().createCriteria(Report.class);
 		return crit.list();
 	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Report> getReports(Przepis przepis) {
 		Criteria crit = session().createCriteria(Report.class);
 		crit.createAlias("przepis", "p").add(Restrictions.eq("przepis.id", przepis.getId()));
+		return crit.list();
+	}
+	@SuppressWarnings("unchecked")
+	public List<Report> getReports(User user) {
+		Criteria crit = session().createCriteria(Report.class);
+		crit.createAlias("user", "u").add(Restrictions.eq("user.login", user.getLogin()));
 		return crit.list();
 	}
 	
