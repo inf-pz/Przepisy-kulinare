@@ -3,5 +3,5 @@
 *.war
 *.ear
 .*
-!/.gitignore
-*/target/* 
+!.gitignore
+/target/* 

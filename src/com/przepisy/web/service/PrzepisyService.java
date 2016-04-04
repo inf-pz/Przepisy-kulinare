@@ -49,7 +49,7 @@ public class PrzepisyService {
 		przepisyDao.delete(przepis);
 	}
 	
-	public void indexBooks() {
+	public void indexPrzepisy() {
 		przepisyDao.indexPrzepisy();
 
 	}

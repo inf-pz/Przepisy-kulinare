@@ -40,7 +40,7 @@ public class PrzepisyDao {
 		FullTextSession fullTextSession = Search.getFullTextSession(session());
 
 		QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(Przepis.class).get();
-		org.apache.lucene.search.Query query = qb.keyword().onFields("name", "skladniki").matching(searchText)
+		org.apache.lucene.search.Query query = qb.keyword().onFields("name", "user", "skladniki").matching(searchText)
 				.createQuery();
 
 		org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Przepis.class)

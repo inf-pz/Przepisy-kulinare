@@ -45,6 +45,11 @@ public class User {
 	public User(){
 		
 	}
+	@Override
+	public String toString(){
+		return login;
+	}
+
 	
 	public User(String login, String password, String email, boolean active, String authority) {
 		this.login = login;

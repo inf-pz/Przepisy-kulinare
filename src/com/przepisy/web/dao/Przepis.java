@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FieldBridge;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
@@ -29,20 +30,21 @@ public class Przepis {
 	@Id
 	@GeneratedValue
 	private int id;
-	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
-	@Column(columnDefinition="TEXT")
+	@Column(columnDefinition = "TEXT")
 	private String text;
-	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
-	@Column(columnDefinition="TEXT")
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@Column(columnDefinition = "TEXT")
 	private String skladniki;
 	private int czas;
 	@Lob
 	@Column(name = "photo", columnDefinition = "mediumblob")
 	private byte[] photo;
-
 	@ManyToOne
 	@JoinColumn(name = "login")
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@FieldBridge(impl = UserBridge.class)
 	private User user;
 	private int status;
 	@Temporal(TemporalType.TIMESTAMP)

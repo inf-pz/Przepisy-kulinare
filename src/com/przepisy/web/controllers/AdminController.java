@@ -53,7 +53,6 @@ public class AdminController {
 	@RequestMapping("/admin/users")
 	public String showUsers(Model model) {
 		List<User> users = usersService.getUsers();
-
 		Collections.sort(users, new Comparator<User>() {
 			@Override
 			public int compare(final User object1, final User object2) {

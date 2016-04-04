@@ -22,7 +22,7 @@
              <div class="hr"><hr /></div>
              <div id="przepis-photo-skladniki">
 			<div id="przepis-left"><img class="obrazekprz" src="getPhoto/<c:out value="${przepis.id}"/>.do"></div>
-			<div id="przepis-right"><div id="tylKolor2"><p>Składniki:</p></div> ${przepis.skladniki}</div>
+			<div id="przepis-right"><div id="tylKolor2"><p>Składniki:</p></div>${przepis.skladniki}</div>
 			</div>
 			 <div id="inne"><div class="hr"><hr /></div></div>
 			 <div id="tylKolor2"><p>Sposób przygotowania:</p> </div>
