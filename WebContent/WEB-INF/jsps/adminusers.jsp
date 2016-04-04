@@ -30,7 +30,7 @@
              <td>${user.email}</td>
              <td>${user.data_rejestracji}</td>
              <td>${user.last_active}</td>
-             <td><a href="${pageContext.request.contextPath}/admin/user/delete?user=${user.login}">Usuń</a></td>
+             <td><a href="${pageContext.request.contextPath}/admin/user/delete?user=${user.login}" onclick="return confirm('Czy jesteś pewny że chcesz usunąć użytkownika i jego przepisy?')" >Usuń</a></td>
 
    </tr>
 </c:forEach>
