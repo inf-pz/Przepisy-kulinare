@@ -15,15 +15,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "comments")
-public class Comment {
+@Table(name = "reports")
+public class Report {
 
 	@Id
 	@GeneratedValue
 	private int id;
 	@ManyToOne
 	@JoinColumn(name = "user_login")
-	private User autor;
+	private User user;
 	@Column(columnDefinition = "TEXT")
 	private String text;
 	@ManyToOne
@@ -31,59 +31,25 @@ public class Comment {
 	private Przepis przepis;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new Date();
-	private Boolean flagged = false;
 
-	public Comment() {
+	public Report() {
 		this.przepis = new Przepis();
-		this.autor = new User();
+		this.user = new User();
 	}
 
-	public Comment(int id, User autor, Date data, String text, Przepis przepis) {
+	public Report(int id, User autor, Date data, String text, Przepis przepis) {
 		this.id = id;
-		this.autor = autor;
+		this.user = autor;
 		this.data = data;
 		this.text = text;
 		this.przepis = przepis;
 	}
 
-	public Boolean getFlagged() {
-		return flagged;
-	}
-
-	public void setFlagged(Boolean flagged) {
-		this.flagged = flagged;
-	}
-
-	public Przepis getPrzepis() {
-		return przepis;
-	}
-
-	public void setPrzepis(Przepis przepis) {
-		this.przepis = przepis;
-	}
-
-	public int getId() {
+	public int getId(){
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public User getAutor() {
-		return autor;
-	}
-
-	public void setAutor(User autor) {
-		this.autor = autor;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
 	}
 
 	public String getData() {
@@ -94,6 +60,30 @@ public class Comment {
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Przepis getPrzepis() {
+		return przepis;
+	}
+
+	public void setPrzepis(Przepis przepis) {
+		this.przepis = przepis;
 	}
 
 }

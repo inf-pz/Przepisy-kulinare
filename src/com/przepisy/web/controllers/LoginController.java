@@ -57,7 +57,7 @@ public class LoginController {
 	@RequestMapping(value = "/ustawieniaUpdate", method = RequestMethod.POST)
 	public String userSettingsUpdare(Model model, Principal principal,
 			@RequestParam(value = "password_old", required = false) String password_old,
-			@RequestParam(value = "password_h", required = false) String newPassword,
+			@RequestParam(value = "password", required = false) String newPassword,
 			@RequestParam(value = "email", required = false) String newEmail) {
 
 		String username = principal.getName();

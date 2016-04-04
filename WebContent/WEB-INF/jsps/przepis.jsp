@@ -31,7 +31,7 @@
 			 <p><img style="margin-bottom:-8px;"src="https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-46-32.png" alt="Autor" height="32" width="32"> Autor: <a href="${pageContext.request.contextPath}/przepisy?user=${przepis.user.login}">${przepis.user.login}</a><p>
 			 <p><img style="margin-bottom:-8px;"src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/Date-32.png" alt="Data" height="32" width="32"> Dodano: ${przepis.data}</p>
              <div class="hr"><hr /></div>
-             <p><img style="margin-bottom:-10px;"src="https://cdn1.iconfinder.com/data/icons/user-ui-vol-1-3/25/user_ui_notify_error_reject_interface-32.png" alt="Zgloszenie" height="32" width="32"> <a href="${pageContext.request.contextPath}/przepisy?user=${przepis.user.login}">zgłoś nadużycie</a></p>
+             <p><img style="margin-bottom:-10px;"src="https://cdn1.iconfinder.com/data/icons/user-ui-vol-1-3/25/user_ui_notify_error_reject_interface-32.png" alt="Zgloszenie" height="32" width="32"> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}">zgłoś nadużycie</a></p>
              </br>
              <sec:authorize access="hasRole('admin')">
              <div class="hr"><hr /></div>
@@ -44,7 +44,7 @@
 			<div id="comm_text">
              <p>
              <a href="${pageContext.request.contextPath}/przepisy?user=${comment.autor.login}">${comment.autor.login}</a> (${comment.data})
-             <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}"> <img style="margin-bottom:-2px;" src="https://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/16x16/Flag2_Green.png" /></a>
+             <a href="${pageContext.request.contextPath}/admin/comment/flag?id=${comment.id}"> <img style="margin-bottom:-2px;" src="https://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/16x16/Flag2_Green.png" /></a>
              <sec:authorize access="hasRole('admin')"> 
              <a href="${pageContext.request.contextPath}/admin/comment/edit?id=${comment.id}"> <img style="margin-bottom:-1px;" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/write-circle-green-16.png" /></a> 
              <a href="${pageContext.request.contextPath}/admin/comment/delete?id=${comment.id}" onclick="return confirm('Czy jesteś pewny że chcesz usunąć komentarz?')">  <img style="margin-bottom:-1px;" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/close-circle-red-16.png" /></a> 

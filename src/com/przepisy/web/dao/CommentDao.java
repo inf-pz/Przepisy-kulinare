@@ -63,6 +63,17 @@ public class CommentDao {
 		return crit.list();
 	}
 	
+	public void flagComment(Comment comment, Boolean flag){
+		comment.setFlagged(flag);
+		session().update(comment);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Comment>getFlaggedComments(){
+		Criteria crit = session().createCriteria(Comment.class);
+		crit.add(Restrictions.eq("flagged", true));
+		return crit.list();
+	}
 	
 		
 		

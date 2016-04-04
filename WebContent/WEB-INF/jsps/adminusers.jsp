@@ -18,6 +18,7 @@
                 <th>Email</th>
                 <th>Data rejestracji</th>
                 <th>Ostanie logowanie</th>
+                <th>Usuń</th>
             </tr>
             </thead>
             <tbody>
@@ -29,6 +30,7 @@
              <td>${user.email}</td>
              <td>${user.data_rejestracji}</td>
              <td>${user.last_active}</td>
+             <td><a href="${pageContext.request.contextPath}/admin/user/delete?user=${user.login}">Usuń</a></td>
 
    </tr>
 </c:forEach>

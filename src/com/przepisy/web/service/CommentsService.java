@@ -58,4 +58,15 @@ public class CommentsService {
 			deleteComment(comment);
 		}
 	}
+	
+	public void flagComment(Comment comment){
+		commentDao.flagComment(comment, true);
+	}
+	public void unflagComment(Comment comment){
+		commentDao.flagComment(comment, false);
+	}
+	public List<Comment> getFlaggedComments(){
+		return commentDao.getFlaggedComments();
+		
+	}
 }

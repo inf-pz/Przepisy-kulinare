@@ -139,6 +139,7 @@ public class PrzepisyController {
 
 	@RequestMapping(value = "/docreateprzepis", headers = "content-type=multipart/*", method = RequestMethod.POST)
 	public String doCreatePrzepis(Model model, Przepis przepis, BindingResult result, Principal principal,
+			RedirectAttributes redirectAttributes,
 			@RequestParam(value = "photo", required = false) MultipartFile file) {
 		przepis.setUser(usersService.findUser(principal.getName()));
 		przepis.setData(new Date());
@@ -166,10 +167,10 @@ public class PrzepisyController {
 			}
 
 		}
-
+		
 		przepisyService.createPrzepis(przepis);
-
-		return "przepisdodany";
+		redirectAttributes.addAttribute("id", przepis.getId());
+		return "redirect:/przepis";
 	}
 
 	@RequestMapping("/mojeprzepisy")
@@ -178,7 +179,7 @@ public class PrzepisyController {
 		 return "redirect:/przepisy?user=" + username;
 	}
 
-	@RequestMapping(value = "/getPhoto/{id}")
+	@RequestMapping(value = "/getPhoto/{id}", method = RequestMethod.GET)
 	public void getUserImage(HttpServletResponse response, @PathVariable("id") int id) throws IOException {
 
 		response.setContentType("image/jpeg");

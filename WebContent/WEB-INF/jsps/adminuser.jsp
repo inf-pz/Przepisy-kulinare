@@ -10,7 +10,7 @@
 </head>
 <body>
 <jsp:include page="/resources/static/navbar.jsp" />
-<a href="${pageContext.request.contextPath}/admin/users">wróc do listy użytkowników</a>
+<a href="${pageContext.request.contextPath}/admin/users">wróć do listy użytkowników</a>
 <h1>${user.login}              
 <a class="btn" onclick="return confirm('Czy jesteś pewny że chcesz usunąć użytkownika i wszystkie jego przepisy?')" href="${pageContext.request.contextPath}/admin/user/delete?user=${user.login}">Usuń</a>
 </h1> 
