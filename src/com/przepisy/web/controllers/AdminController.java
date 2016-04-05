@@ -264,5 +264,10 @@ public class AdminController {
 
 		return "redirect:/admin/reports";
 	}
+	
+	@RequestMapping("/admin/index")
+	public void Index(){
+		przepisyService.indexPrzepisy();
+	}
 
 }

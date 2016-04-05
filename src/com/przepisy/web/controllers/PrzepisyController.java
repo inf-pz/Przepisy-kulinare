@@ -21,12 +21,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.przepisy.web.dao.Comment;
 import com.przepisy.web.dao.Przepis;
 import com.przepisy.web.dao.User;
 import com.przepisy.web.service.CommentsService;
+import com.przepisy.web.service.PrzepisPdfView;
 import com.przepisy.web.service.PrzepisyService;
 import com.przepisy.web.service.UsersService;
 
@@ -189,5 +191,11 @@ public class PrzepisyController {
 		InputStream in1 = new ByteArrayInputStream(buffer);
 		IOUtils.copy(in1, response.getOutputStream());
 		
+	}
+	
+	@RequestMapping(value = "/przepis/drukuj", method = RequestMethod.GET)
+	protected ModelAndView toPdf(@RequestParam(value = "id", required = true) int id){
+		Przepis przepis = przepisyService.getPrzepis(id);
+		return new ModelAndView(new PrzepisPdfView(), "przepis", przepis);
 	}
 }

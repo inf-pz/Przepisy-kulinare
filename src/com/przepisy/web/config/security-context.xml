@@ -16,8 +16,10 @@
 	</security:authentication-manager>
 	<security:http use-expressions="true">
 	
-		<security:intercept-url pattern="/favicon.ico" access="ROLE_ANONYMOUS" />
+	
+		<security:intercept-url pattern="/favicon.ico" access="denyAll" />
 		<security:intercept-url pattern="/admin/comment/flag" access="permitAll" />
+		<security:intercept-url pattern="/przepis/drukuj" access="permitAll" />
 		<security:intercept-url pattern="/admin/przepis/flag" access="isAuthenticated()" />
 		<security:intercept-url pattern="/admin/przepis/flagged" access="isAuthenticated()" />
 		<security:intercept-url pattern="/admin/**" access="hasRole('admin')" />

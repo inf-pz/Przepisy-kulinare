@@ -27,4 +27,5 @@
 	<bean id="loginListener"
 		class="com.przepisy.web.service.LoginListener">
 	</bean>
+	
 </beans>
