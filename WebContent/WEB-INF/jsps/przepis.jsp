@@ -12,6 +12,16 @@
 <title>${przepis.name}</title>
 </head>
 <body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <jsp:include page="/resources/static/navbar.jsp" />
 <div id="przepisGlobal">
 <div id="przepis_single">
@@ -32,6 +42,7 @@
 			 <p><img style="margin-bottom:-8px;"src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/Date-32.png" alt="Data" height="32" width="32"> Dodano: ${przepis.data}</p>
              <div class="hr"><hr /></div>
              <p><img style="margin-bottom:-10px;"src="https://cdn1.iconfinder.com/data/icons/user-ui-vol-1-3/25/user_ui_notify_error_reject_interface-32.png" alt="Zgloszenie" height="32" width="32"> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}">zgłoś nadużycie</a></p>
+			<div class="fb-share-button" data-href="request.getAttribute("javax.servlet.forward.request_uri")" data-show-faces="true" data-layout="button"></div>       
              </br>
              <sec:authorize access="hasRole('admin')">
              <div class="hr"><hr /></div>
