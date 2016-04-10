@@ -41,9 +41,11 @@
 			 <p><img style="margin-bottom:-8px;"src="https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-46-32.png" alt="Autor" height="32" width="32"> Autor: <a href="${pageContext.request.contextPath}/przepisy?user=${przepis.user.login}">${przepis.user.login}</a><p>
 			 <p><img style="margin-bottom:-8px;"src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/Date-32.png" alt="Data" height="32" width="32"> Dodano: ${przepis.data}</p>
              <div class="hr"><hr /></div>
-             <p><img style="margin-bottom:-10px;"src="https://cdn1.iconfinder.com/data/icons/user-ui-vol-1-3/25/user_ui_notify_error_reject_interface-32.png" alt="Zgloszenie" height="32" width="32"> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}">zgłoś nadużycie</a></p>
-			<div class="fb-share-button" data-href="request.getAttribute("javax.servlet.forward.request_uri")" data-show-faces="true" data-layout="button"></div>       
-             </br>
+             <p> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}"><img style="margin-bottom:-10px;" src="https://cdn1.iconfinder.com/data/icons/user-ui-vol-1-3/25/user_ui_notify_error_reject_interface-32.png" alt="Zgloszenie" height="32" width="32"></a> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}">zgłoś nadużycie</a></p>
+             <p> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}"><img style="margin-bottom:-10px;" src="https://cdn4.iconfinder.com/data/icons/pretty-office-part-6-shadow-style/32/Printer-green.png" alt="Drukuj" height="32" width="32"></a> <a href="${pageContext.request.contextPath}/przepis/drukuj?id=${przepis.id}">drukuj</a></p>
+              <div class="hr"><hr /></div>
+			 <p>Poleć przepis: <div class="fb-share-button" data-href="${pageContext.request.contextPath}/przepisy/przepis?id=${przepis.id}" data-show-faces="true" data-layout="button"></div></p>  
+             <!--  </br>-->
              <sec:authorize access="hasRole('admin')">
              <div class="hr"><hr /></div>
              <p> Panel moderatora: <a class="btn" href="${pageContext.request.contextPath}/admin/przepis/edit?id=${przepis.id}" >Edytuj</a><a class="btn" href="${pageContext.request.contextPath}/admin/przepis/delete?id=${przepis.id}" onclick="return confirm('Czy jesteś pewny że chcesz usunąć ten przepis?')" >Usuń</a> </p>
