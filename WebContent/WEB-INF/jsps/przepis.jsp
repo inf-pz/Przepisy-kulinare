@@ -44,7 +44,7 @@
              <p> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}"><img style="margin-bottom:-10px;" src="https://cdn1.iconfinder.com/data/icons/user-ui-vol-1-3/25/user_ui_notify_error_reject_interface-32.png" alt="Zgloszenie" height="32" width="32"></a> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}">zgłoś nadużycie</a></p>
              <p> <a href="${pageContext.request.contextPath}/admin/przepis/flag?id=${przepis.id}"><img style="margin-bottom:-10px;" src="https://cdn4.iconfinder.com/data/icons/pretty-office-part-6-shadow-style/32/Printer-green.png" alt="Drukuj" height="32" width="32"></a> <a href="${pageContext.request.contextPath}/przepis/drukuj?id=${przepis.id}">drukuj</a></p>
               <div class="hr"><hr /></div>
-			 <p>Poleć przepis: <div class="fb-share-button" data-href="${pageContext.request.contextPath}/przepisy/przepis?id=${przepis.id}" data-show-faces="true" data-layout="button"></div></p>  
+			 <p>Poleć przepis: <div class="fb-share-button" data-href="${pageContext.request.contextPath}/przepis?id=${przepis.id}" data-show-faces="true" data-layout="button"></div></p>  
              <!--  </br>-->
              <sec:authorize access="hasRole('admin')">
              <div class="hr"><hr /></div>

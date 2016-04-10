@@ -46,7 +46,6 @@ public class PrzepisPdfView extends AbstractIText5PdfView {
 		form.setField("user", przepis.getUser().getLogin());
 		form.setField("czas", Integer.toString(przepis.getCzas()));
 		form.setField("opis", przepis.getText());
-		form.setField("name", "AAAAA");
 
 		PdfDictionary page = pdfTemplate.getPageN(1);
 		PdfDictionary resources = page.getAsDict(PdfName.RESOURCES);
