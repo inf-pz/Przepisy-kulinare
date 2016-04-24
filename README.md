@@ -19,7 +19,6 @@ Zakres funkcjonalności:
   - sposób przygotowania
   - możliwość wydrukowania przepisu
 - przeglądanie aktualnie dodanych
-- ocenianie jakości przepisu przez użytkowników
 - dodanie searchbar
 
 Technologie:
@@ -42,7 +41,6 @@ Cele do relizacji w drugim semestrze:
 - dalsza praca nad funkcjonalnością strony:
   - stworzenie panelu zarzadzania kontem (J.Matuszewski) 29.02.2016
   - rozbudowanie panelu dodania przepisu (M.Gałaszewska) 07.03.2016
-  - dodanie możliwości oceny przepisu (J.Matuszewski) 14.03.2016
   - dodanie możliwości komentowania przepisu (J.Matuszewski) 14.03.2016
   - zaimplementowanie panelu do szukania przepisów (M.Gałaszewska) 21.03.2016
   - stworzenie panelu do zgłaszania przepisów (M.Gałaszewska) 21.03.2016
