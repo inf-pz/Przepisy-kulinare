@@ -104,7 +104,7 @@ public class PrzepisyController {
 	}
 
 	@RequestMapping(value = "/nowycomment", method = RequestMethod.POST)
-	public String doCreatePrzepis(RedirectAttributes redirectAttributes, Comment comment, Principal principal,
+	public String doCreateComment(RedirectAttributes redirectAttributes, Comment comment, Principal principal,
 			@RequestParam(value = "id", required = true) int id) {
 
 		User user = usersService.findUser(principal.getName());
